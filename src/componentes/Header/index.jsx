@@ -2,7 +2,9 @@ import styled from "styled-components";
 import Botao from "../Botao/Botao";
 
 const ContainerHeader = styled.header`
-    width: 100%;
+    width: 1440px;
+    margin: 0 auto;
+    max-width: 100%;
     height: 125px;
     display: flex;
     padding: 0px 51px;
