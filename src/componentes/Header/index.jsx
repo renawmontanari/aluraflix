@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Botao from "../Botao/Botao";
 
 const ContainerHeader = styled.header`
     width: 1440px;
@@ -21,6 +20,18 @@ const CaixaBotao = styled.div`
     gap: 25px;
 `
 
+const BotaoCustomizado = styled.button`
+    width: 180px;
+    height: 54px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #FFF;
+    border:solid 1px #fff;
+    background-color: transparent;
+`
+
 function Header() {
     return (
         <ContainerHeader>
@@ -28,8 +39,12 @@ function Header() {
                 <img src="./imagens/logo.png" alt="Logo-Aluraflix" />
             </div>
             <CaixaBotao>
-                <Botao>Home</Botao>
-                <Botao>Novo Vídeo</Botao>
+                <BotaoCustomizado>
+                    Home
+                </BotaoCustomizado>
+                <BotaoCustomizado>
+                    Novo Vídeo
+                </BotaoCustomizado>
             </CaixaBotao>
         </ContainerHeader>
     )
