@@ -7,6 +7,8 @@ const ContainerBanner = styled.section`
     max-width: 100%;
     position: relative; 
     overflow: hidden;
+    padding: 50px;
+    align-content: end;
 `;
 
 const BackgroundImg = styled.img`
@@ -22,18 +24,17 @@ const BackgroundImg = styled.img`
 
 const CaixaConteudo = styled.div`
     width: 100%;
-    height: 100%;
+    height: 50%;
     display: flex;
     flex-direction: row;
-    align-items: end;
-    justify-content: center;
 ` 
 
 const Content = styled.div`
     width: 55%;
-    height: 40%;
+    height: 333px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 20px;
     color: white;
 `;
@@ -59,12 +60,23 @@ const BotaoCustomizado = styled.button`
     line-height: 56px;
     align-items: center;
     color: #FFF;
+    z-index: 1;
+    border: none;
     background-color: #6BD1FF;
 `
 
 const TituloCustomizado = styled.h2`
     font-size: 46px;
     font-weight: 400;
+    color: #FFF;
+`
+
+const DescricaoCustomizada = styled.p`
+    width: 662px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFF;
 `
 
 function Banner() {
@@ -79,12 +91,12 @@ function Banner() {
                     <TituloCustomizado>
                         SEO com React
                     </TituloCustomizado>
-                    <p>
+                    <DescricaoCustomizada>
                         Eu to aqui pra nesse vídeo dizer que a gente vai aprender a começar uma app 
                         inspirada no desenho Pokémon com Nextjs e React, ver algumas dicas sobre performance
                         e de quebra conhecer uma plataforma sensacional pra fazer deploy que é a Vercel. 
                         Tudo em 22 minutos nesse vídeo feito com todo o carinho do mundo construindo uma Pokedex! 
-                    </p>
+                    </DescricaoCustomizada>
                 </Content>
                 <ContentVideo>
                     <PlayerImagem src="./imagens/player.png" alt="Player Video" />
