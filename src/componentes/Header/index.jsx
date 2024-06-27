@@ -10,6 +10,8 @@ const ContainerHeader = styled.header`
     flex-direction: row;
     align-items: center;
     align-content: center;
+    border-bottom: solid 1px #2271D1;
+    box-shadow: 0px 5px 0px 0px #2271D1B2;
     justify-content: space-between;
     background-color: #262626;
 `
