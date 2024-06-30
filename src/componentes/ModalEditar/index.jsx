@@ -20,6 +20,73 @@ const DialogEstilizado = styled.dialog`
     display: ${props => (props.aberto ? 'block' : 'none')};
 `;
 
+const FecharButton = styled.button`
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+`;
+
+const Label = styled.label`
+    margin-top: 10px;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+`;
+
+const Input = styled.input`
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+`;
+
+const Select = styled.select`
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+`;
+
+const TextArea = styled.textarea`
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+`;
+
+const BotaoSalvar = styled.button`
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+`;
+
+const BotaoLimpar = styled.button`
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+`;
+
 function ModalEditar({ aberto, fechado }) {
 
     return (
@@ -28,13 +95,17 @@ function ModalEditar({ aberto, fechado }) {
             <DialogEstilizado aberto={aberto}>
                 <form method="dialog">
                     <button type="button" onClick={fechado}>Fechar X</button>
-                    <p>Olá, Mundo!</p>
                     <label>Titulo</label>
                     <input type="text" placeholder="O que é javascript?" />
 
                     <label>Categoria</label>
-                    <input type="text" placeholder="O que é javascript?" />
-
+                    <select>
+                        <option>
+                            <option value=""></option>
+                            <option value="">Teste</option>
+                        </option>
+                    </select>
+                        
                     <label>Imagem</label>
                     <input type="text" placeholder="O que é javascript?" />
 
