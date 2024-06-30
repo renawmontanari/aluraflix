@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo from './logo.png';
 
 const FooterCustomizado = styled.footer`
     width: 1440px;
@@ -14,7 +15,7 @@ const FooterCustomizado = styled.footer`
 function Footer() {
     return (
         <FooterCustomizado>
-            <img src="./imagens/logo.png" alt="Logo-Aluraflix" />
+            <img src={logo} alt="Logo-Aluraflix" />
         </FooterCustomizado>
     )
 }

@@ -1,0 +1,36 @@
+{
+    "cards": [
+        {
+            "id": 1,
+            "titulo": "Guia de carreira Front-end",
+            "categoria": "Frontend",
+            "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
+            "video": "https://www.youtube.com/embed/fpth65ts3cw?si=fj-oV7kRpbfG8Vu7",
+            "descricao": "Escola de fronend da Alura no brasil."
+        },
+        {
+            "id": 2,
+            "titulo": "O que faz uma desenvolvedora Back-end?",
+            "categoria": "Backend",
+            "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
+            "video": "https://www.youtube.com/embed/fiPfvylj6rk?si=GqSJAG6Zh75-RLLL",
+            "descricao": "Escola de fronend da Alura no brasil."
+        },
+        {
+            "id": 3,
+            "titulo": "Híbridos: Flutter e React Native",
+            "categoria": "Mobile",
+            "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
+            "video": "https://www.youtube.com/embed/vf9P_PycgRw?si=lH-IKkawYPvmb-Ek",
+            "descricao": "Escola de fronend da Alura no brasil."
+        },
+        {
+            "id": 4,
+            "titulo": "Guia de carreira Front-end Video parte 2",
+            "categoria": "Frontend",
+            "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
+            "video": "https://www.youtube.com/embed/fpth65ts3cw?si=fj-oV7kRpbfG8Vu7",
+            "descricao": "Escola de fronend da Alura no brasil."
+        }
+    ]
+}

@@ -125,8 +125,8 @@ const IconeFechar = styled(RiCloseCircleLine)`
     color: #FFF;
 `
 
+// eslint-disable-next-line react/prop-types
 function ModalEditar({ aberto, fechado }) {
-
     return (
         <>
             <Overlay aberto={aberto} onClick={fechado} />
@@ -163,7 +163,7 @@ function ModalEditar({ aberto, fechado }) {
                         <Label>Descrição</Label>
                         <TextArea placeholder="Descrição do conteúdo"></TextArea>
                     </div>
-                    
+
                     <BoxBotoes>
                         <Botao type="button">SALVAR</Botao>
                         <Botao type="button">LIMPAR</Botao>

@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import logo from './logo.png';
+import { Link } from "react-router-dom";
+import CabecalhoLink from '@/componentes/CabecalhoLink';
 
 const ContainerHeader = styled.header`
     width: 1440px;
@@ -38,15 +41,21 @@ function Header() {
     return (
         <ContainerHeader>
             <div>
-                <img src="./imagens/logo.png" alt="Logo-Aluraflix" />
+                <Link to="./">
+                    <img src={logo} alt="Logo-Aluraflix" />
+                </Link>
             </div>
             <CaixaBotao>
-                <BotaoCustomizado>
-                    Home
-                </BotaoCustomizado>
-                <BotaoCustomizado>
-                    Novo Vídeo
-                </BotaoCustomizado>
+                <CabecalhoLink url="./">
+                    <BotaoCustomizado>
+                        Home
+                    </BotaoCustomizado>
+                </CabecalhoLink>
+                <CabecalhoLink url="./videonovo">
+                    <BotaoCustomizado>
+                        Novo Vídeo
+                    </BotaoCustomizado>
+                </CabecalhoLink>
             </CaixaBotao>
         </ContainerHeader>
     )
