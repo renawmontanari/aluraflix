@@ -126,7 +126,23 @@ const IconeFechar = styled(RiCloseCircleLine)`
 `
 
 // eslint-disable-next-line react/prop-types
-function ModalEditar({ aberto, fechado }) {
+function ModalEditar({ 
+    aberto, 
+    fechado, 
+    titulo, 
+    setTitulo, 
+    imagem, 
+    setImagem, 
+    video, 
+    setVideo, 
+    descricao, 
+    setDescricao,
+    categoria,
+    setCategoria,
+    salvarEdicao,
+    limpar
+ }) {
+    if(!aberto) return null;
     return (
         <>
             <Overlay aberto={aberto} onClick={fechado} />
@@ -138,35 +154,58 @@ function ModalEditar({ aberto, fechado }) {
                     <TituloEditar>EDITAR CARD:</TituloEditar>
                     <div>
                         <Label>Título</Label>
-                        <Input type="text" placeholder="O que é JavaScript?" />
+                        <Input 
+                            type="text" 
+                            value={titulo} 
+                            onChange={(evento) => setTitulo(evento.target.value)} 
+                            placeholder="O que é JavaScript?" 
+                        />
                     </div>
 
                     <div>
                         <Label>Categoria</Label>
-                        <Select>
+                        <Select
+                            value={categoria}
+                            onChange={(evento) => setCategoria(evento.target.value)}
+                        >
                             <option value="">Selecione uma categoria</option>
-                            <option value="teste">Teste</option>
+                            <option value="frontend">Frontend</option>
+                            <option value="backend">Backend</option>
+                            <option value="mobile">Mobile</option>
                         </Select>
                     </div>
 
                     <div>
                         <Label>Imagem</Label>
-                        <Input type="text" placeholder="URL da imagem" />
+                        <Input 
+                            type="text" 
+                            value={imagem} 
+                            onChange={(evento) => setImagem(evento.target.value)} 
+                            placeholder="URL da imagem" 
+                        />
                     </div>
 
                     <div>
                         <Label>Vídeo</Label>
-                        <Input type="text" placeholder="URL do vídeo" />
+                        <Input 
+                            type="text" 
+                            value={video} 
+                            onChange={(evento) => setVideo(evento.target.value)} 
+                            placeholder="URL do vídeo" 
+                        />
                     </div>
 
                     <div>
                         <Label>Descrição</Label>
-                        <TextArea placeholder="Descrição do conteúdo"></TextArea>
+                        <TextArea 
+                            value={descricao} 
+                            onChange={(evento) => setDescricao(evento.target.value)} 
+                            placeholder="Descrição do conteúdo"></TextArea>
                     </div>
 
                     <BoxBotoes>
-                        <Botao type="button">SALVAR</Botao>
-                        <Botao type="button">LIMPAR</Botao>
+                        <Botao type="button" onClick={salvarEdicao}>SALVAR</Botao>
+                        <Botao type="button" onClick={limpar}>LIMPAR</Botao>
                     </BoxBotoes>
                 </Form>
             </DialogEstilizado>

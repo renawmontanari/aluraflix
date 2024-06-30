@@ -19,9 +19,9 @@ function Inicio() {
     return <div>Carregando...</div>; // Ou outra lógica de carregamento
   }
 
-  const frontendCards = cards.filter(card => card.categoria === 'Frontend');
-  const backendCards = cards.filter(card => card.categoria === 'Backend');
-  const mobileCards = cards.filter(card => card.categoria === 'Mobile');
+  const frontendCards = cards.filter(card => card.categoria === 'frontend');
+  const backendCards = cards.filter(card => card.categoria === 'backend');
+  const mobileCards = cards.filter(card => card.categoria === 'mobile');
 
   const excluindoCardAgora = (id) => {
     const novoscards = cards.filter(card => card.id !== id);
@@ -32,11 +32,21 @@ function Inicio() {
     <>
       <Banner />
 
-      <Secao cards={frontendCards} categoria="Frontend" excluindo={excluindoCardAgora} />
-
-      <Secao cards={backendCards} categoria="Backend" excluindo={excluindoCardAgora} />
-
-      <Secao cards={mobileCards} categoria="Mobile" excluindo={excluindoCardAgora} />
+      <Secao 
+        cards={frontendCards} 
+        categoria="Frontend" 
+        excluindo={excluindoCardAgora} 
+      />
+      <Secao 
+        cards={backendCards} 
+        categoria="Backend" 
+        excluindo={excluindoCardAgora} 
+      />
+      <Secao 
+        cards={mobileCards} 
+        categoria="Mobile" 
+        excluindo={excluindoCardAgora} 
+      />
 
     </>
   )

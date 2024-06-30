@@ -168,8 +168,47 @@ const mudarCorDaCategoria = (categoria) => {
 
 function Secao({ titulo, categoria, imagem, video, descricao, cards, excluindo }) {
     const [modalAberto, setModalAberto] = useState(false);
+    const [cardEditando, setCardEditando] = useState(null);
+    const [tituloEdit, setTituloEdit] = useState();
+    const [imagemEdit, setImagemEdit] = useState();
+    const [videoEdit, setVideoEdit] = useState();
+    const [descricaoEdit, setDescricaoEdit] = useState();
+    const [categoriaEdit, setCategoriaEdit] = useState("");
 
-    const estadoModalAberto = () => setModalAberto(true);
+    const abrirModalEditar = (card) => {
+        setCardEditando(card);
+        setTituloEdit(card.titulo);
+        setImagemEdit(card.imagem);
+        setVideoEdit(card.video);
+        setDescricaoEdit(card.descricao);
+        setCategoriaEdit(card.categoria);
+        setModalAberto(true);
+    }
+
+    const fecharModalEditar = () => {
+        setModalAberto(false);
+    }
+
+    const salvarEdicao = () => {
+        const novoCard = {
+            ...cardEditando,
+            tituloEdit: tituloEdit,
+            imagemEdit: imagemEdit,
+            videoEdit: videoEdit,
+            descricaoEdit: descricaoEdit,
+            categoria: categoriaEdit
+        };
+
+        const novosCards = cards.map(card => (
+            card.id === cardEditando.id ? novoCard : card
+        ));
+
+        excluindo(novosCards);
+
+        fecharModalEditar();
+    }
+
+   
     const estadoModalFechado = () => setModalAberto(false);
 
     const excluirCard = (id) => {
@@ -201,13 +240,28 @@ function Secao({ titulo, categoria, imagem, video, descricao, cards, excluindo }
                             </Botoes>
                             <Botoes>
                                 <IconeEditarCustomizado />
-                                <BotaoEditar onClick={estadoModalAberto}>EDITAR</BotaoEditar>
+                                <BotaoEditar onClick={() => abrirModalEditar(card)}>EDITAR</BotaoEditar>
                             </Botoes>
                         </BoxBotoes>
                         <ModalEditar aberto={modalAberto} fechado={estadoModalFechado} />
                     </Card>
                 ))}
             </CardContainer>
+            <ModalEditar
+                aberto={modalAberto}
+                fechado={fecharModalEditar}
+                tituloEdit={tituloEdit}
+                setTitulo={setTituloEdit}
+                imagemEdit={imagemEdit}
+                setImagem={setImagemEdit}
+                videoEdit={videoEdit}
+                setVideo={setVideoEdit}
+                descricaoEdit={descricaoEdit}
+                setDescricaoEdit={setDescricaoEdit}
+                categoriaEdit={categoriaEdit}
+                setCategoriaEdit={setCategoriaEdit}
+                salvarEdicao={salvarEdicao}
+            />
         </ContainerSecao>
     )
 }

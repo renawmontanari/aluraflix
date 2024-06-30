@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const ContainerVideoNovo = styled.section`
@@ -91,6 +92,73 @@ const BoxBotoes = styled.div`
 `
 
 function VideoNovo() {
+    const [titulo, setTitulo] = useState("");
+    const [categoria, setCategoria] = useState("");
+    const [imagem, setImagem] = useState("");
+    const [video, setVideo] = useState("");
+    const [descricao, setDescricao] = useState("");
+
+    const handleChange = (evento) => {
+        const { name, value } = evento.target;
+
+        switch (name) {
+            case "titulo":
+                setTitulo(value);
+                break;
+            case "categoria":
+                setCategoria(value);
+                break;
+            case "imagem":
+                setImagem(value);
+                break;
+            case "video":
+                setVideo(value);
+                break;
+            case "descricao":
+                setDescricao(value);
+                break;
+            default:
+                break;
+        }
+    };
+
+    const handleSubmit = async (evento) => {
+        evento.preventDefault();
+
+        const novoCard = {
+            titulo,
+            categoria,
+            imagem,
+            video,
+            descricao
+        };
+
+        try {
+            const response = await fetch("http://localhost:3000/cards", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(novoCard)
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao criar novo card.");
+            }
+
+            setTitulo("");
+            setCategoria("");
+            setImagem("");
+            setVideo("");
+            setDescricao("");
+
+            alert("Novo card criado com sucesso!");
+        } catch (error) {
+            console.error("Erro ao criar novo card:", error);
+            alert("Erro ao criar novo card. Por favor, tente novamente.");
+        }
+    }
+
     return (
         <>
             <ContainerVideoNovo>
@@ -99,38 +167,67 @@ function VideoNovo() {
                     <p>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO.</p>
                 </div>
                 <div>
-                    <Form>
+                    <Form onSubmit={handleSubmit}> 
                         <TituloEditar>CRIAR CARD:</TituloEditar>
                         <div>
                             <Label>Título</Label>
-                            <Input type="text" placeholder="O que é JavaScript?" />
+                            <Input 
+                                type="text" 
+                                name="titulo" 
+                                value={titulo} 
+                                onChange={handleChange} 
+                                placeholder="O que é JavaScript?" 
+                            />
                         </div>
 
                         <div>
                             <Label>Categoria</Label>
-                            <Select>
+                            <Select 
+                                name="categoria" 
+                                value={categoria} 
+                                onChange={handleChange}
+                            >
                                 <option value="">Selecione uma categoria</option>
-                                <option value="teste">Teste</option>
+                                <option value="frontend">Frontend</option>
+                                <option value="backend">Backend</option>
+                                <option value="mobile">Mobile</option>
                             </Select>
                         </div>
 
-                        <div>
+                        <div>  
                             <Label>Imagem</Label>
-                            <Input type="text" placeholder="URL da imagem" />
+                            <Input 
+                                type="text" 
+                                name="imagem"
+                                value={imagem}
+                                onChange={handleChange}
+                                placeholder="URL da imagem" 
+                            />
                         </div>
 
                         <div>
                             <Label>Vídeo</Label>
-                            <Input type="text" placeholder="URL do vídeo" />
+                            <Input 
+                                type="text"
+                                name="video"
+                                value={video}
+                                onChange={handleChange}
+                                placeholder="URL do vídeo" 
+                            />
                         </div>
 
                         <div>
                             <Label>Descrição</Label>
-                            <TextArea placeholder="Descrição do conteúdo"></TextArea>
+                            <TextArea 
+                                name="descricao" 
+                                value={descricao}
+                                onChange={handleChange}
+                                placeholder="Descrição do conteúdo"
+                            ></TextArea>
                         </div>
 
                         <BoxBotoes>
-                            <Botao type="button">SALVAR</Botao>
+                            <Botao type="submit">SALVAR</Botao>
                             <Botao type="button">LIMPAR</Botao>
                         </BoxBotoes>
                     </Form>
