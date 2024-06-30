@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { RiCloseCircleLine } from "react-icons/ri";
 
 const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.7);
@@ -13,14 +14,17 @@ const Overlay = styled.div`
 const DialogEstilizado = styled.dialog`
     width: 974px;
     height: 1140px;
-    position: absolute;
+    top: 914px;
+    display: flex;
+    align-content: center;
+    z-index: 10;
+    border-radius: 15px;
     background: #03122F;
-    padding: 0;
-    border: 0;
+    border: solid 4px #6BD1FF;
     display: ${props => (props.aberto ? 'block' : 'none')};
 `;
 
-const FecharButton = styled.button`
+const BotaoFecharModal = styled.button`
     position: absolute;
     top: 10px;
     right: 10px;
@@ -34,58 +38,92 @@ const FecharButton = styled.button`
 const Label = styled.label`
     margin-top: 10px;
     display: block;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #FFF;
+    background-color: #03122F;
 `;
 
+const TituloEditar = styled.h2`
+    font-size:60px;
+    font-weight: 800;
+    line-height: 70px;
+    color: #2271D1;
+    background-color: #03122F;
+`
+
 const Input = styled.input`
-    width: 100%;
+    width: 573px;
+    height: 62px;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    background-color: #03122F;
+    border-radius: 10px;
+    border: 3px solid #2271D1;
 `;
 
 const Select = styled.select`
-    width: 100%;
+    width: 573px;
+    height: 82px;
     padding: 8px;
     margin-top: 5px;
+    color: #797979;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    background-color: #03122F;
+    border-radius: 10px;
+    border: 3px solid #2271D1;
 `;
 
 const TextArea = styled.textarea`
-    width: 100%;
+    width: 573px;
+    height: 112px;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    background-color: #03122F;
+    border-radius: 10px;
+    border: 3px solid #2271D1;
 `;
 
-const BotaoSalvar = styled.button`
-    background-color: #4CAF50;
+const Botao = styled.button`
+    width: 180px;
+    height: 54px;
+    background-color: transparent;
+    border: 2px solid #c5c5c5;
     color: white;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 24px;
 `;
 
-const BotaoLimpar = styled.button`
-    background-color: #f44336;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-`;
+const Form = styled.form`
+    width: 574px;
+    height: 955px;
+    background-color: #03122F;
+    display: flex;
+    gap: 40PX;
+    flex-direction: column;
+`
+
+const BoxBotoes = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
+const IconeFechar = styled(RiCloseCircleLine)`
+    font-size: 58px;
+    color: #FFF;
+`
 
 function ModalEditar({ aberto, fechado }) {
 
@@ -93,31 +131,44 @@ function ModalEditar({ aberto, fechado }) {
         <>
             <Overlay aberto={aberto} onClick={fechado} />
             <DialogEstilizado aberto={aberto}>
-                <form method="dialog">
-                    <button type="button" onClick={fechado}>Fechar X</button>
-                    <label>Titulo</label>
-                    <input type="text" placeholder="O que é javascript?" />
+                <BotaoFecharModal onClick={fechado}>
+                    <IconeFechar />
+                </BotaoFecharModal>
+                <Form>
+                    <TituloEditar>EDITAR CARD:</TituloEditar>
+                    <div>
+                        <Label>Título</Label>
+                        <Input type="text" placeholder="O que é JavaScript?" />
+                    </div>
 
-                    <label>Categoria</label>
-                    <select>
-                        <option>
-                            <option value=""></option>
-                            <option value="">Teste</option>
-                        </option>
-                    </select>
-                        
-                    <label>Imagem</label>
-                    <input type="text" placeholder="O que é javascript?" />
+                    <div>
+                        <Label>Categoria</Label>
+                        <Select>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="teste">Teste</option>
+                        </Select>
+                    </div>
 
-                    <label>Vídeo</label>
-                    <input type="text" placeholder="O que é javascript?" />
+                    <div>
+                        <Label>Imagem</Label>
+                        <Input type="text" placeholder="URL da imagem" />
+                    </div>
 
-                    <label>Descrição</label>
-                    <textarea></textarea>
+                    <div>
+                        <Label>Vídeo</Label>
+                        <Input type="text" placeholder="URL do vídeo" />
+                    </div>
 
-                    <button type="button">SALVAR</button>
-                    <button type="button">LIMPAR</button>
-                </form>
+                    <div>
+                        <Label>Descrição</Label>
+                        <TextArea placeholder="Descrição do conteúdo"></TextArea>
+                    </div>
+                    
+                    <BoxBotoes>
+                        <Botao type="button">SALVAR</Botao>
+                        <Botao type="button">LIMPAR</Botao>
+                    </BoxBotoes>
+                </Form>
             </DialogEstilizado>
         </>
     )

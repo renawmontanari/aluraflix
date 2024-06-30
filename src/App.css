@@ -91,8 +91,11 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    background-color: #262626;
     font-family: "Roboto", sans-serif;
+}
+
+html {
+    background-color: #262626;
 }
 
 /* HTML5 display-role reset for older browsers */
