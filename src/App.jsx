@@ -11,6 +11,8 @@ function App() {
       <Banner />
 
       <Secao />
+      <Secao />
+      <Secao />
 
       <Footer />
     </>
