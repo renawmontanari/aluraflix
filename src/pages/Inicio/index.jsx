@@ -16,7 +16,7 @@ function Inicio() {
   }, []);
 
   if (cards === null) {
-    return <div>Carregando...</div>; // Ou outra lógica de carregamento
+    return <div>Carregando...</div>;
   }
 
   const frontendCards = cards.filter(card => card.categoria === 'frontend');

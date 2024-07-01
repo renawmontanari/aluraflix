@@ -2,9 +2,16 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const ContainerVideoNovo = styled.section`
-    width: 1172px;
+    width: 1440px;
     height: 1100px;
-    background-color: aliceblue;
+    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    background-color: #262626;
 `
 
 const Label = styled.label`
@@ -14,15 +21,19 @@ const Label = styled.label`
     font-weight: 600;
     line-height: 24px;
     color: #FFF;
-    background-color: #03122F;
 `;
 
 const TituloEditar = styled.h2`
-    font-size:60px;
+    width: 100%;
+    font-size:36px;
     font-weight: 800;
     line-height: 70px;
-    color: #2271D1;
-    background-color: #03122F;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    border-top: solid 1px #ffffff67;
+    border-bottom: solid 1px #ffffff67;
+    background-color: #262626;
 `
 
 const Input = styled.input`
@@ -30,12 +41,10 @@ const Input = styled.input`
     height: 62px;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     font-size: 16px;
-    background-color: #03122F;
+    background-color: #262626;
     border-radius: 10px;
-    border: 3px solid #2271D1;
+    border: 3px solid #cccccc5c;
 `;
 
 const Select = styled.select`
@@ -43,13 +52,12 @@ const Select = styled.select`
     height: 82px;
     padding: 8px;
     margin-top: 5px;
-    color: #797979;
+    color: #b4b4b4;
     border: 1px solid #ccc;
-    border-radius: 4px;
     font-size: 16px;
-    background-color: #03122F;
+    background-color: #262626;
     border-radius: 10px;
-    border: 3px solid #2271D1;
+    border: 3px solid #cccccc5c;
 `;
 
 const TextArea = styled.textarea`
@@ -57,19 +65,17 @@ const TextArea = styled.textarea`
     height: 112px;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 3px solid #cccccc5c;
     font-size: 16px;
-    background-color: #03122F;
+    background-color: #262626;
     border-radius: 10px;
-    border: 3px solid #2271D1;
 `;
 
 const Botao = styled.button`
     width: 180px;
     height: 54px;
     background-color: transparent;
-    border: 2px solid #c5c5c5;
+    border: 2px solid #8d8d8d;
     color: white;
     border-radius: 10px;
     cursor: pointer;
@@ -80,15 +86,38 @@ const Botao = styled.button`
 const Form = styled.form`
     width: 874px;
     height: 955px;
-    background-color: #03122F;
+    background-color: #262626;
+    display: flex;
     flex-wrap: wrap;
-    gap: 40PX;
+    margin-top: 10px;
 `
 
 const BoxBotoes = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: aliceblue;
+`
+
+const BoxTitulos = styled.div`
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #FFF;
+    background-color: #262626;
+    h2 {
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 70px;
+    }
+    p {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 23px;
+    }
 `
 
 function VideoNovo() {
@@ -162,10 +191,10 @@ function VideoNovo() {
     return (
         <>
             <ContainerVideoNovo>
-                <div>
+                <BoxTitulos>
                     <h2>NOVO VÍDEO</h2>
                     <p>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO.</p>
-                </div>
+                </BoxTitulos>
                 <div>
                     <Form onSubmit={handleSubmit}> 
                         <TituloEditar>CRIAR CARD:</TituloEditar>
