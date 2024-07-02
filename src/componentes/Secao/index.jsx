@@ -96,7 +96,7 @@ const BoxBotoes = styled.div`
     border-top: none;
     justify-content: space-around;
     align-items: center;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 15px 15px;
     box-shadow: 0px -4px 5px 3px ${({ categoria }) => {
         switch (categoria) {
             case 'Frontend':
@@ -227,8 +227,8 @@ function Secao({ titulo, categoria, imagem, video, descricao, cards, excluindo }
                             <iframe
                                 width="420"
                                 height="250"
-                                src={video}
-                                title={titulo}  
+                                src={card.video}
+                                title={card.titulo}  
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 >
                             </iframe>
