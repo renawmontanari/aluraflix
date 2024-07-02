@@ -9,7 +9,9 @@ const FooterCustomizado = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #262626;
+    background-color: #000000E5;
+    border-top: 4px solid #2271D1;
+    box-shadow: 0px 5px 29px 0px #2271D1B2;
 `
 
 function Footer() {

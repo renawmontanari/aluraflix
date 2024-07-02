@@ -1,7 +1,7 @@
 {
   "cards": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Guia de carreira Front-end",
       "categoria": "frontend",
       "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
@@ -9,7 +9,7 @@
       "descricao": "Escola de fronend da Alura no brasil."
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "O que faz uma desenvolvedora Back-end?",
       "categoria": "backend",
       "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
@@ -17,7 +17,7 @@
       "descricao": "Escola de fronend da Alura no brasil."
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Híbridos: Flutter e React Native",
       "categoria": "mobile",
       "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
@@ -25,7 +25,7 @@
       "descricao": "Escola de fronend da Alura no brasil."
     },
     {
-      "id": 4,
+      "id": "4",
       "titulo": "Guia de carreira Front-end Video parte 2",
       "categoria": "frontend",
       "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
@@ -33,7 +33,7 @@
       "descricao": "Escola de fronend da Alura no brasil."
     },
     {
-      "id": 5,
+      "id": "5",
       "titulo": "Guia de carreira Front-end Video parte 2",
       "categoria": "frontend",
       "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
@@ -55,6 +55,14 @@
       "imagem": "https://geekfanaticos.fbitsstatic.net/img/p/funko-pop-grogu-with-armor-584-the-book-of-boba-star-wars-73957/260445.jpg?w=540&h=540&v=no-change&qs=ignore",
       "video": "https://www.youtube.com/embed/vf9P_PycgRw?si=lH-IKkawYPvmb-Ek",
       "descricao": "rererererer"
+    },
+    {
+      "id": "0279",
+      "titulo": "Backdoor no linux",
+      "categoria": "mobile",
+      "imagem": "https://geekfanaticos.fbitsstatic.net/img/p/funko-pop-doctor-strange-1000-doctor-strange-and-the-multiverse-of-madness-doutor-estranho-e-o-73363/259850.jpg?w=540&h=540&v=no-change&qs=ignore",
+      "video": "https://www.youtube.com/embed/vf9P_PycgRw?si=lH-IKkawYPvmb-Ek",
+      "descricao": "tesrte"
     }
   ]
 }

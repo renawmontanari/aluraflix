@@ -18,7 +18,6 @@ const BackgroundImg = styled.img`
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
     object-fit: cover;
 `;
 
@@ -48,7 +47,7 @@ const PlayerImagem = styled.img`
     width: 646px;
     height: 333px;
     position: relative;
-    z-index: 5;
+    z-index: 0;
 `
 
 const BotaoCustomizado = styled.button`
@@ -60,7 +59,7 @@ const BotaoCustomizado = styled.button`
     line-height: 56px;
     align-items: center;
     color: #FFF;
-    z-index: 1;
+    z-index: 0;
     border: none;
     background-color: #6BD1FF;
 `

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ContainerVideoNovo = styled.section`
     width: 1440px;
-    height: 1100px;
+    height: 880px;
     margin: 0 auto;
     max-width: 100%;
     display: flex;
@@ -20,13 +20,15 @@ const Label = styled.label`
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
+    margin-bottom: 10px;
     color: #FFF;
 `;
 
 const TituloEditar = styled.h2`
     width: 100%;
+    height: 75px;
     font-size:36px;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 70px;
     color: #ffffff;
     display: flex;
@@ -48,7 +50,7 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
-    width: 573px;
+    width: 595px;
     height: 82px;
     padding: 8px;
     margin-top: 5px;
@@ -84,19 +86,21 @@ const Botao = styled.button`
 `;
 
 const Form = styled.form`
-    width: 874px;
-    height: 955px;
-    background-color: #262626;
+    width: 1440px;
+    height: 655px;
     display: flex;
-    flex-wrap: wrap;
+    background-color: #262626;
+    flex-direction: column;
+    justify-content: space-between;
     margin-top: 10px;
 `
 
 const BoxBotoes = styled.div`
+    width: 400px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: aliceblue;
 `
 
 const BoxTitulos = styled.div`
@@ -118,6 +122,31 @@ const BoxTitulos = styled.div`
         font-weight: 400;
         line-height: 23px;
     }
+`
+
+const BoxInputsPrimarios = styled.div`
+    width: 1440px;
+    height: 115px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
+const BoxInputsSecundarios = styled.div`
+    width: 1440px;
+    height: 115px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
+const BoxDescricao = styled.div`
+    width: 1440px;
+    height: 155px;
+    display: flex;
+    flex-direction: column;
 `
 
 function VideoNovo() {
@@ -197,55 +226,55 @@ function VideoNovo() {
                 </BoxTitulos>
                 <div>
                     <Form onSubmit={handleSubmit}> 
-                        <TituloEditar>CRIAR CARD:</TituloEditar>
-                        <div>
-                            <Label>Título</Label>
-                            <Input 
-                                type="text" 
-                                name="titulo" 
-                                value={titulo} 
-                                onChange={handleChange} 
-                                placeholder="O que é JavaScript?" 
-                            />
-                        </div>
-
-                        <div>
-                            <Label>Categoria</Label>
-                            <Select 
-                                name="categoria" 
-                                value={categoria} 
-                                onChange={handleChange}
-                            >
-                                <option value="">Selecione uma categoria</option>
-                                <option value="frontend">Frontend</option>
-                                <option value="backend">Backend</option>
-                                <option value="mobile">Mobile</option>
-                            </Select>
-                        </div>
-
-                        <div>  
-                            <Label>Imagem</Label>
-                            <Input 
-                                type="text" 
-                                name="imagem"
-                                value={imagem}
-                                onChange={handleChange}
-                                placeholder="URL da imagem" 
-                            />
-                        </div>
-
-                        <div>
-                            <Label>Vídeo</Label>
-                            <Input 
-                                type="text"
-                                name="video"
-                                value={video}
-                                onChange={handleChange}
-                                placeholder="URL do vídeo" 
-                            />
-                        </div>
-
-                        <div>
+                        <TituloEditar>Criar Card:</TituloEditar>
+                        <BoxInputsPrimarios>
+                            <div>
+                                <Label>Título</Label>
+                                <Input 
+                                    type="text" 
+                                    name="titulo" 
+                                    value={titulo} 
+                                    onChange={handleChange} 
+                                    placeholder="O que é JavaScript?" 
+                                />
+                            </div>
+                            <div>
+                                <Label>Categoria</Label>
+                                <Select 
+                                    name="categoria" 
+                                    value={categoria} 
+                                    onChange={handleChange}
+                                >
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="frontend">Frontend</option>
+                                    <option value="backend">Backend</option>
+                                    <option value="mobile">Mobile</option>
+                                </Select>
+                            </div>
+                        </BoxInputsPrimarios>
+                        <BoxInputsSecundarios>
+                            <div>  
+                                <Label>Imagem</Label>
+                                <Input 
+                                    type="text" 
+                                    name="imagem"
+                                    value={imagem}
+                                    onChange={handleChange}
+                                    placeholder="URL da imagem" 
+                                />
+                            </div>
+                            <div>
+                                <Label>Vídeo</Label>
+                                <Input 
+                                    type="text"
+                                    name="video"
+                                    value={video}
+                                    onChange={handleChange}
+                                    placeholder="URL do vídeo" 
+                                />
+                            </div>
+                        </BoxInputsSecundarios>
+                        <BoxDescricao>
                             <Label>Descrição</Label>
                             <TextArea 
                                 name="descricao" 
@@ -253,8 +282,7 @@ function VideoNovo() {
                                 onChange={handleChange}
                                 placeholder="Descrição do conteúdo"
                             ></TextArea>
-                        </div>
-
+                        </BoxDescricao>
                         <BoxBotoes>
                             <Botao type="submit">SALVAR</Botao>
                             <Botao type="button">LIMPAR</Botao>
