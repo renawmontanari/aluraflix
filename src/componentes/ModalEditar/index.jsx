@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { RiCloseCircleLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
 
 const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.281);
@@ -130,20 +131,71 @@ const IconeFechar = styled(RiCloseCircleLine)`
 function ModalEditar({ 
     aberto, 
     fechado, 
-    titulo, 
+    cardId,
     setTitulo, 
-    imagem, 
     setImagem, 
-    video, 
     setVideo, 
-    descricao, 
     setDescricao,
-    categoria,
     setCategoria,
-    salvarEdicao,
     limpar
  }) {
-    if(!aberto) return null;
+    const [titulo, setLocalTitulo] = useState("");
+    const [categoria, setLocalCategoria] = useState("");
+    const [imagem, setLocalImagem] = useState("");
+    const [video, setLocalVideo] = useState("");
+    const [descricao, setLocalDescricao] = useState(""); 
+
+    useEffect(() => {
+        if (aberto) {
+            const requisicaoDadosCard = async () => {
+                try {
+                    const resposta = await fetch(`http://localhost:3000/cards/${cardId}`);
+                    const data = await resposta.json();
+                    const { titulo, categoria, imagem, video, descricao } = data;
+                    setLocalTitulo(titulo);
+                    setLocalCategoria(categoria);
+                    setLocalImagem(imagem);
+                    setLocalVideo(video);
+                    setLocalDescricao(descricao);
+                } catch (error) {
+                    console.error("Erro ao buscar dados do card:", error);
+                }
+            };
+            
+            requisicaoDadosCard();
+        }
+    }, [aberto, cardId]);
+
+    const aoSalvar = async () => {
+        const cardAtualizado = {
+            titulo: titulo,
+            categoria: categoria,
+            imagem: imagem,
+            video: video,
+            descricao: descricao
+        };
+
+        try {
+            const resposta = await fetch(`http://localhost:3000/cards/${cardId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cardAtualizado)
+            });
+
+            if (!resposta.ok) {
+                throw new Error('Erro ao atualizar card');
+            }
+
+            alert("Card atualizado com sucesso!");
+            fechado();
+        } catch (error) {
+            console.error("Erro ao atualizar o card:", error);
+            alert("Erro ao atualizar o card.");
+        }
+    };
+
     return (
         <>
             <Overlay aberto={aberto} onClick={fechado} />
@@ -158,7 +210,7 @@ function ModalEditar({
                         <Input 
                             type="text" 
                             value={titulo} 
-                            onChange={(evento) => setTitulo(evento.target.value)} 
+                            onChange={(evento) => setLocalTitulo(evento.target.value)} 
                             placeholder="O que é JavaScript?" 
                         />
                     </div>
@@ -167,7 +219,7 @@ function ModalEditar({
                         <Label>Categoria</Label>
                         <Select
                             value={categoria}
-                            onChange={(evento) => setCategoria(evento.target.value)}
+                            onChange={(evento) => setLocalCategoria(evento.target.value)}
                         >
                             <option value="">Selecione uma categoria</option>
                             <option value="frontend">Frontend</option>
@@ -181,7 +233,7 @@ function ModalEditar({
                         <Input 
                             type="text" 
                             value={imagem} 
-                            onChange={(evento) => setImagem(evento.target.value)} 
+                            onChange={(evento) => setLocalImagem(evento.target.value)} 
                             placeholder="URL da imagem" 
                         />
                     </div>
@@ -191,7 +243,7 @@ function ModalEditar({
                         <Input 
                             type="text" 
                             value={video} 
-                            onChange={(evento) => setVideo(evento.target.value)} 
+                            onChange={(evento) => setLocalVideo(evento.target.value)} 
                             placeholder="URL do vídeo" 
                         />
                     </div>
@@ -200,12 +252,12 @@ function ModalEditar({
                         <Label>Descrição</Label>
                         <TextArea 
                             value={descricao} 
-                            onChange={(evento) => setDescricao(evento.target.value)} 
+                            onChange={(evento) => setLocalDescricao(evento.target.value)} 
                             placeholder="Descrição do conteúdo"></TextArea>
                     </div>
 
                     <BoxBotoes>
-                        <Botao type="button" onClick={salvarEdicao}>SALVAR</Botao>
+                        <Botao type="button" onClick={aoSalvar}>SALVAR</Botao>
                         <Botao type="button" onClick={limpar}>LIMPAR</Botao>
                     </BoxBotoes>
                 </Form>

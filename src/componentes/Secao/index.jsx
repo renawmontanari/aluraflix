@@ -168,52 +168,19 @@ const mudarCorDaCategoria = (categoria) => {
 
 function Secao({ titulo, categoria, imagem, video, descricao, cards, excluindo }) {
     const [modalAberto, setModalAberto] = useState(false);
-    const [cardEditando, setCardEditando] = useState(null);
-    const [tituloEdit, setTituloEdit] = useState();
-    const [imagemEdit, setImagemEdit] = useState();
-    const [videoEdit, setVideoEdit] = useState();
-    const [descricaoEdit, setDescricaoEdit] = useState();
-    const [categoriaEdit, setCategoriaEdit] = useState("");
+    const [cardId, setCardId] = useState(null);
 
-    const abrirModalEditar = (card) => {
-        setCardEditando(card);
-        setTituloEdit(card.titulo);
-        setImagemEdit(card.imagem);
-        setVideoEdit(card.video);
-        setDescricaoEdit(card.descricao);
-        setCategoriaEdit(card.categoria);
-        setModalAberto(true);
-    }
-
-    const fecharModalEditar = () => {
-        setModalAberto(false);
-    }
-
-    const salvarEdicao = () => {
-        const novoCard = {
-            ...cardEditando,
-            tituloEdit: tituloEdit,
-            imagemEdit: imagemEdit,
-            videoEdit: videoEdit,
-            descricaoEdit: descricaoEdit,
-            categoria: categoriaEdit
-        };
-
-        const novosCards = cards.map(card => (
-            card.id === cardEditando.id ? novoCard : card
-        ));
-
-        excluindo(novosCards);
-
-        fecharModalEditar();
-    }
-
-   
     const estadoModalFechado = () => setModalAberto(false);
 
     const excluirCard = (id) => {
         excluindo(id);
     }
+
+    const abrirModalParaEdicao = (id) => {
+        setCardId(id);
+        setModalAberto(true);
+    };
+
 
     return (
         <ContainerSecao>
@@ -240,28 +207,13 @@ function Secao({ titulo, categoria, imagem, video, descricao, cards, excluindo }
                             </Botoes>
                             <Botoes>
                                 <IconeEditarCustomizado />
-                                <BotaoEditar onClick={() => abrirModalEditar(card)}>EDITAR</BotaoEditar>
+                                <BotaoEditar onClick={() => abrirModalParaEdicao(card.id)}>EDITAR</BotaoEditar>
                             </Botoes>
                         </BoxBotoes>
-                        <ModalEditar aberto={modalAberto} fechado={estadoModalFechado} />
+                        <ModalEditar aberto={modalAberto} fechado={estadoModalFechado} cardId={cardId} />
                     </Card>
                 ))}
             </CardContainer>
-            <ModalEditar
-                aberto={modalAberto}
-                fechado={fecharModalEditar}
-                tituloEdit={tituloEdit}
-                setTitulo={setTituloEdit}
-                imagemEdit={imagemEdit}
-                setImagem={setImagemEdit}
-                videoEdit={videoEdit}
-                setVideo={setVideoEdit}
-                descricaoEdit={descricaoEdit}
-                setDescricaoEdit={setDescricaoEdit}
-                categoriaEdit={categoriaEdit}
-                setCategoriaEdit={setCategoriaEdit}
-                salvarEdicao={salvarEdicao}
-            />
         </ContainerSecao>
     )
 }

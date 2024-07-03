@@ -30,7 +30,7 @@ function Inicio() {
 
   return (
     <>
-      <Banner />
+      <Banner /> 
 
       <Secao 
         cards={frontendCards} 
