@@ -32,21 +32,29 @@ function Inicio() {
     <>
       <Banner /> 
 
-      <Secao 
-        cards={frontendCards} 
-        categoria="Frontend" 
-        excluindo={excluindoCardAgora} 
-      />
-      <Secao 
-        cards={backendCards} 
-        categoria="Backend" 
-        excluindo={excluindoCardAgora} 
-      />
-      <Secao 
-        cards={mobileCards} 
-        categoria="Mobile" 
-        excluindo={excluindoCardAgora} 
-      />
+      {frontendCards.length > 0 && (
+        <Secao 
+          cards={frontendCards} 
+          categoria="Frontend" 
+          excluindo={excluindoCardAgora} 
+        />
+      )}
+      
+      {backendCards.length > 0 && (
+        <Secao 
+          cards={backendCards} 
+          categoria="Backend" 
+          excluindo={excluindoCardAgora} 
+        />
+      )}
+      
+      {mobileCards.length > 0 && (
+        <Secao 
+          cards={mobileCards} 
+          categoria="Mobile" 
+          excluindo={excluindoCardAgora} 
+        />
+      )}
 
     </>
   )

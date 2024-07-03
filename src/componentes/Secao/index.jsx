@@ -6,19 +6,20 @@ import { useState } from "react";
 
 const ContainerSecao = styled.section`
     width: 1440px;
-    height: 507px;
+    height: auto;
     margin: 0 auto;
     max-width: 100%;
     margin-top: 20px;
+    margin-bottom: 40px;
     display: flex;
     gap: 40px;
     flex-direction: column;
 `
 
 const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
 `;
 
 const Card = styled.div`
@@ -127,7 +128,7 @@ const Botoes = styled.div`
 
 const IconeLixeiraCustomizado = styled(TbTrashX)`
     color: #FFF;
-    font-size: 25px;
+    font-size: 55px;
 `
 
 const IconeEditarCustomizado = styled(TbEdit)`
@@ -166,7 +167,7 @@ const mudarCorDaCategoria = (categoria) => {
     }
 }
 
-function Secao({ titulo, categoria, imagem, video, descricao, cards, excluindo }) {
+function Secao({ categoria, cards, excluindo }) {
     const [modalAberto, setModalAberto] = useState(false);
     const [cardId, setCardId] = useState(null);
 

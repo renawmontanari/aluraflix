@@ -63,6 +63,7 @@ const Input = styled.input`
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    color: #00aa00;
     background-color: #03122F;
     border-radius: 10px;
     border: 3px solid #2271D1;
@@ -73,7 +74,7 @@ const Select = styled.select`
     height: 82px;
     padding: 8px;
     margin-top: 5px;
-    color: #797979;
+    color: #00aa00; 
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -90,6 +91,7 @@ const TextArea = styled.textarea`
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    color: #00aa00;
     background-color: #03122F;
     border-radius: 10px;
     border: 3px solid #2271D1;
@@ -130,14 +132,8 @@ const IconeFechar = styled(RiCloseCircleLine)`
 // eslint-disable-next-line react/prop-types
 function ModalEditar({ 
     aberto, 
-    fechado, 
-    cardId,
-    setTitulo, 
-    setImagem, 
-    setVideo, 
-    setDescricao,
-    setCategoria,
-    limpar
+    fechado,
+    cardId
  }) {
     const [titulo, setLocalTitulo] = useState("");
     const [categoria, setLocalCategoria] = useState("");
@@ -194,6 +190,14 @@ function ModalEditar({
             console.error("Erro ao atualizar o card:", error);
             alert("Erro ao atualizar o card.");
         }
+    };
+
+    const limparInputs = () => {
+        setLocalTitulo('');
+        setLocalCategoria('');
+        setLocalImagem('');
+        setLocalVideo('');
+        setLocalDescricao('');
     };
 
     return (
@@ -258,7 +262,7 @@ function ModalEditar({
 
                     <BoxBotoes>
                         <Botao type="button" onClick={aoSalvar}>SALVAR</Botao>
-                        <Botao type="button" onClick={limpar}>LIMPAR</Botao>
+                        <Botao type="button" onClick={limparInputs}>LIMPAR</Botao>
                     </BoxBotoes>
                 </Form>
             </DialogEstilizado>

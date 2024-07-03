@@ -156,7 +156,7 @@ function VideoNovo() {
     const [video, setVideo] = useState("");
     const [descricao, setDescricao] = useState("");
 
-    const handleChange = (evento) => {
+    const aoMudar = (evento) => {
         const { name, value } = evento.target;
 
         switch (name) {
@@ -180,7 +180,7 @@ function VideoNovo() {
         }
     };
 
-    const handleSubmit = async (evento) => {
+    const aoEnviar = async (evento) => {
         evento.preventDefault();
 
         const novoCard = {
@@ -217,6 +217,10 @@ function VideoNovo() {
         }
     }
 
+    const limparInputs = () => {
+
+    }
+
     return (
         <>
             <ContainerVideoNovo>
@@ -225,7 +229,7 @@ function VideoNovo() {
                     <p>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO.</p>
                 </BoxTitulos>
                 <div>
-                    <Form onSubmit={handleSubmit}> 
+                    <Form onSubmit={aoEnviar}> 
                         <TituloEditar>Criar Card:</TituloEditar>
                         <BoxInputsPrimarios>
                             <div>
@@ -234,7 +238,7 @@ function VideoNovo() {
                                     type="text" 
                                     name="titulo" 
                                     value={titulo} 
-                                    onChange={handleChange} 
+                                    onChange={aoMudar} 
                                     placeholder="O que é JavaScript?" 
                                 />
                             </div>
@@ -243,7 +247,7 @@ function VideoNovo() {
                                 <Select 
                                     name="categoria" 
                                     value={categoria} 
-                                    onChange={handleChange}
+                                    onChange={aoMudar}
                                 >
                                     <option value="">Selecione uma categoria</option>
                                     <option value="frontend">Frontend</option>
@@ -259,7 +263,7 @@ function VideoNovo() {
                                     type="text" 
                                     name="imagem"
                                     value={imagem}
-                                    onChange={handleChange}
+                                    onChange={aoMudar}
                                     placeholder="URL da imagem" 
                                 />
                             </div>
@@ -269,7 +273,7 @@ function VideoNovo() {
                                     type="text"
                                     name="video"
                                     value={video}
-                                    onChange={handleChange}
+                                    onChange={aoMudar}
                                     placeholder="URL do vídeo" 
                                 />
                             </div>
@@ -279,13 +283,13 @@ function VideoNovo() {
                             <TextArea 
                                 name="descricao" 
                                 value={descricao}
-                                onChange={handleChange}
+                                onChange={aoMudar}
                                 placeholder="Descrição do conteúdo"
                             ></TextArea>
                         </BoxDescricao>
                         <BoxBotoes>
                             <Botao type="submit">SALVAR</Botao>
-                            <Botao type="button">LIMPAR</Botao>
+                            <Botao type="button" onClick={limparInputs}>LIMPAR</Botao>
                         </BoxBotoes>
                     </Form>
                 </div>
