@@ -98,7 +98,7 @@ const BoxBotoes = styled.div`
     justify-content: space-around;
     align-items: center;
     border-radius: 0px 0px 15px 15px;
-    box-shadow: 0px -4px 5px 3px ${({ categoria }) => {
+    box-shadow: 0px -4px 18px 3px ${({ categoria }) => {
         switch (categoria) {
             case 'Frontend':
                 return '#6BD1FF';

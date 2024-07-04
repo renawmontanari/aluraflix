@@ -41,12 +41,6 @@ const Content = styled.div`
 const ContentVideo = styled.div`
     width: 646px;
     height: 333px;
-`
-
-const PlayerImagem = styled.img`
-    width: 646px;
-    height: 333px;
-    position: relative;
     z-index: 0;
 `
 
@@ -68,6 +62,7 @@ const TituloCustomizado = styled.h2`
     font-size: 46px;
     font-weight: 400;
     color: #FFF;
+    z-index: 0;
 `
 
 const DescricaoCustomizada = styled.p`
@@ -76,6 +71,7 @@ const DescricaoCustomizada = styled.p`
     font-size: 18px;
     line-height: 21px;
     color: #FFF;
+    z-index: 0;
 `
 
 function Banner() {
@@ -85,20 +81,28 @@ function Banner() {
             <CaixaConteudo>
                 <Content>
                     <BotaoCustomizado>
-                        FRONT END
+                        <p>FRONTEND</p>
                     </BotaoCustomizado>
                     <TituloCustomizado>
-                        SEO com React
+                        <p>SEO com React</p>
                     </TituloCustomizado>
                     <DescricaoCustomizada>
-                        Eu to aqui pra nesse vídeo dizer que a gente vai aprender a começar uma app 
-                        inspirada no desenho Pokémon com Nextjs e React, ver algumas dicas sobre performance
-                        e de quebra conhecer uma plataforma sensacional pra fazer deploy que é a Vercel. 
-                        Tudo em 22 minutos nesse vídeo feito com todo o carinho do mundo construindo uma Pokedex! 
+                        <p>
+                            Eu to aqui pra nesse vídeo dizer que a gente vai aprender a começar uma app 
+                            inspirada no desenho Pokémon com Nextjs e React, ver algumas dicas sobre performance
+                            e de quebra conhecer uma plataforma sensacional pra fazer deploy que é a Vercel. 
+                            Tudo em 22 minutos nesse vídeo feito com todo o carinho do mundo construindo uma Pokedex!
+                        </p> 
                     </DescricaoCustomizada>
                 </Content>
                 <ContentVideo>
-                    <PlayerImagem src="./imagens/player.png" alt="Player Video" />
+                    <iframe 
+                        width="646" 
+                        height="333" 
+                        src="https://www.youtube.com/embed/6IuQUgeDPg0?si=icXy_QZyK2Ja-7rT" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        llow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
                 </ContentVideo>
             </CaixaConteudo>
         </ContainerBanner>

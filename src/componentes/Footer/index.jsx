@@ -7,7 +7,11 @@ const FooterCustomizado = styled.footer`
     max-width: 100%;
     height: 125px;
     display: flex;
+    color: #FFF;
+    gap: 25px;
+    font-size: 20px;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-color: #000000E5;
     border-top: 4px solid #2271D1;
@@ -16,9 +20,12 @@ const FooterCustomizado = styled.footer`
 
 function Footer() {
     return (
-        <FooterCustomizado>
-            <img src={logo} alt="Logo-Aluraflix" />
-        </FooterCustomizado>
+        <>
+            <FooterCustomizado>
+                <img src={logo} alt="Logo-Aluraflix" />
+                <p>Desenvolvido por Renan W. Montanari - Challenge T6 - ONE</p>
+            </FooterCustomizado>
+        </>
     )
 }
 
