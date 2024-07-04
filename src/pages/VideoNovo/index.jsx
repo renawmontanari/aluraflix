@@ -44,6 +44,7 @@ const Input = styled.input`
     padding: 8px;
     margin-top: 5px;
     font-size: 16px;
+    color: #FFF;
     background-color: #262626;
     border-radius: 10px;
     border: 3px solid #cccccc5c;
@@ -67,6 +68,7 @@ const TextArea = styled.textarea`
     height: 112px;
     padding: 8px;
     margin-top: 5px;
+    color: #FFF;
     border: 3px solid #cccccc5c;
     font-size: 16px;
     background-color: #262626;
@@ -218,7 +220,11 @@ function VideoNovo() {
     }
 
     const limparInputs = () => {
-
+        setTitulo("");
+        setCategoria("");
+        setImagem("");
+        setVideo("");
+        setDescricao("");
     }
 
     return (
