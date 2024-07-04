@@ -173,15 +173,30 @@ function Secao({ categoria, cards, excluindo }) {
 
     const estadoModalFechado = () => setModalAberto(false);
 
-    const excluirCard = (id) => {
-        excluindo(id);
+    const excluirCard = async (id) => {
+        if (window.confirm("Você tem certeza que deseja excluir este card?")) {
+            try {
+                const resposta = await fetch(`http://localhost:3000/cards/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (!resposta.ok) {
+                    throw new Error('Erro ao excluir o card');
+                }
+
+                excluindo(id);
+                alert("Card excluido com sucesso!");
+            } catch (error) {
+                console.error("Erro ao deletar o card:", error);
+                alert("Erro ao excluir o card");
+            }
+        }
     }
 
     const abrirModalParaEdicao = (id) => {
         setCardId(id);
         setModalAberto(true);
     };
-
 
     return (
         <ContainerSecao>
