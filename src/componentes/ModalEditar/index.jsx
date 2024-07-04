@@ -70,7 +70,7 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
-    width: 573px;
+    width: 599px;
     height: 82px;
     padding: 8px;
     margin-top: 5px;
@@ -110,16 +110,18 @@ const Botao = styled.button`
 `;
 
 const Form = styled.form`
-    width: 574px;
+    width: 974px;
     height: 955px;
     background-color: #03122F;
     display: flex;
     gap: 40PX;
+    align-items: center;
     flex-direction: column;
 `
 
 const BoxBotoes = styled.div`
     display: flex;
+    gap: 230px;
     flex-direction: row;
     justify-content: space-between;
 `
