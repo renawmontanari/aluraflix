@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
+import Notificacao from "../Notificacao/Index";
 
 const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.281);
@@ -233,6 +234,7 @@ function ModalEditar({
     const [imagem, setLocalImagem] = useState("");
     const [video, setLocalVideo] = useState("");
     const [descricao, setLocalDescricao] = useState(""); 
+    const [notification, setNotification] = useState({ message: '', type: '', visible: false });
 
     useEffect(() => {
         if (aberto) {
@@ -277,11 +279,11 @@ function ModalEditar({
                 throw new Error('Erro ao atualizar card');
             }
 
-            alert("Card atualizado com sucesso!");
+            mostrarNotificacao("Card atualizado com sucesso!", "success");
             fechado();
         } catch (error) {
             console.error("Erro ao atualizar o card:", error);
-            alert("Erro ao atualizar o card.");
+            mostrarNotificacao("Erro ao atualizar o card.", "error");
         }
     };
 
@@ -293,8 +295,20 @@ function ModalEditar({
         setLocalDescricao('');
     };
 
+    const mostrarNotificacao = (message, type) => {
+        setNotification({ message, type, visible: true });
+        setTimeout(() => {
+            setNotification({ ...notification, visible: false });
+        }, 3000);
+    };
+
     return (
         <>
+            <Notificacao
+                message={notification.message}
+                type={notification.type}
+                visible={notification.visible}
+            />
             <Overlay aberto={aberto} onClick={fechado} />
             <DialogEstilizado aberto={aberto}>
                 <BotaoFecharModal onClick={fechado}>
