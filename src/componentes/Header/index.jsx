@@ -17,12 +17,31 @@ const ContainerHeader = styled.header`
     box-shadow: 0px 5px 0px 0px #2271D1B2;
     justify-content: space-between;
     background-color: #262626;
+
+    @media (max-width: 1200px) {
+        padding: 0px 30px;
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 10px;
+    }
 `
 
 const CaixaBotao = styled.div`
     display: flex;
     flex-direction: row;
     gap: 25px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 15px;
+    }
 `
 
 const BotaoCustomizado = styled.button`
@@ -35,6 +54,16 @@ const BotaoCustomizado = styled.button`
     color: #FFF;
     border:solid 1px #fff;
     background-color: transparent;
+
+    @media (max-width: 1200px) {
+        width: 150px;
+        height: 48px;
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 function Header() {

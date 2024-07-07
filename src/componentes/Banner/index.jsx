@@ -9,6 +9,19 @@ const ContainerBanner = styled.section`
     overflow: hidden;
     padding: 50px;
     align-content: end;
+
+    @media (max-width: 1200px) {
+        padding: 40px;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        padding: 30px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 20px;
+    }
 `;
 
 const BackgroundImg = styled.img`
@@ -19,6 +32,10 @@ const BackgroundImg = styled.img`
     top: 0;
     left: 0;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+        opacity: 0.5;
+    }
 `;
 
 const CaixaConteudo = styled.div`
@@ -26,6 +43,11 @@ const CaixaConteudo = styled.div`
     height: 50%;
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+    }
 ` 
 
 const Content = styled.div`
@@ -36,12 +58,25 @@ const Content = styled.div`
     justify-content: space-around;
     gap: 20px;
     color: white;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: auto;
+    }
 `;
 
 const ContentVideo = styled.div`
     width: 646px;
     height: 333px;
     z-index: 0;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+    }
 `
 
 const BotaoCustomizado = styled.button`
@@ -56,6 +91,22 @@ const BotaoCustomizado = styled.button`
     z-index: 0;
     border: none;
     background-color: #6BD1FF;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        font-size: 36px;
+        height: 80px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 30px;
+        height: 70px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 24px;
+        height: 60px;
+    }
 `
 
 const TituloCustomizado = styled.h2`
@@ -63,6 +114,18 @@ const TituloCustomizado = styled.h2`
     font-weight: 400;
     color: #FFF;
     z-index: 0;
+
+    @media (max-width: 1200px) {
+        font-size: 36px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 30px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 24px;
+    }
 `
 
 const DescricaoCustomizada = styled.p`
@@ -72,6 +135,19 @@ const DescricaoCustomizada = styled.p`
     line-height: 21px;
     color: #FFF;
     z-index: 0;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+    }
 `
 
 function Banner() {
