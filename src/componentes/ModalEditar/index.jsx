@@ -24,6 +24,21 @@ const DialogEstilizado = styled.dialog`
     background: #03122F;
     border: solid 4px #6BD1FF;
     display: ${props => (props.aberto ? 'block' : 'none')};
+
+    @media (max-width: 1200px) {
+        width: 80%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        width: 90%;
+        height: auto;
+    }
+
+    @media (max-width: 480px) {
+        width: 95%;
+        height: auto;
+    }
 `;
 
 const BotaoFecharModal = styled.button`
@@ -53,6 +68,14 @@ const TituloEditar = styled.h2`
     line-height: 70px;
     color: #2271D1;
     background-color: #03122F;
+
+    @media (max-width: 768px) {
+        font-size: 40px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 30px;
+    }
 `
 
 const Input = styled.input`
@@ -67,6 +90,14 @@ const Input = styled.input`
     background-color: #03122F;
     border-radius: 10px;
     border: 3px solid #2271D1;
+
+    @media (max-width: 768px) {
+        width: 550px;
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
+    }
 `;
 
 const Select = styled.select`
@@ -81,6 +112,14 @@ const Select = styled.select`
     background-color: #03122F;
     border-radius: 10px;
     border: 3px solid #2271D1;
+
+    @media (max-width: 768px) {
+        width: 550px;
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
+    }
 `;
 
 const TextArea = styled.textarea`
@@ -95,6 +134,14 @@ const TextArea = styled.textarea`
     background-color: #03122F;
     border-radius: 10px;
     border: 3px solid #2271D1;
+
+    @media (max-width: 768px) {
+        width: 550px;
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
+    }
 `;
 
 const Botao = styled.button`
@@ -107,6 +154,18 @@ const Botao = styled.button`
     cursor: pointer;
     font-size: 20px;
     line-height: 24px;
+
+    @media (max-width: 768px) {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+        width: 140px;
+        height: 45px;
+        font-size: 16px;
+    }
 `;
 
 const Form = styled.form`
@@ -117,6 +176,21 @@ const Form = styled.form`
     gap: 40PX;
     align-items: center;
     flex-direction: column;
+
+    @media (max-width: 1200px) {
+        width: 80%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        width: 90%;
+        height: auto;
+    }
+
+    @media (max-width: 480px) {
+        width: 95%;
+        height: auto;
+    }
 `
 
 const BoxBotoes = styled.div`
@@ -124,11 +198,28 @@ const BoxBotoes = styled.div`
     gap: 230px;
     flex-direction: row;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        gap: 150px;
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 20px;
+    }
 `
 
 const IconeFechar = styled(RiCloseCircleLine)`
     font-size: 58px;
     color: #FFF;
+
+    @media (max-width: 768px) {
+        font-size: 48px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 38px;
+    }
 `
 
 // eslint-disable-next-line react/prop-types

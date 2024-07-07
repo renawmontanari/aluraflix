@@ -12,6 +12,17 @@ const ContainerVideoNovo = styled.section`
     align-items: center;
     margin-top: 5px;
     background-color: #262626;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+        padding: 10px;
+    }
 `
 
 const Label = styled.label`
@@ -36,6 +47,13 @@ const TituloEditar = styled.h2`
     border-top: solid 1px #ffffff67;
     border-bottom: solid 1px #ffffff67;
     background-color: #262626;
+
+    @media (max-width: 768px) {
+        font-size: 28px;
+        height: auto;
+        padding: 10px 0;
+        line-height: 40px;
+    }
 `
 
 const Input = styled.input`
@@ -48,6 +66,11 @@ const Input = styled.input`
     background-color: #262626;
     border-radius: 10px;
     border: 3px solid #cccccc5c;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 50px;
+    }
 `;
 
 const Select = styled.select`
@@ -61,6 +84,11 @@ const Select = styled.select`
     background-color: #262626;
     border-radius: 10px;
     border: 3px solid #cccccc5c;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 50px;
+    }
 `;
 
 const TextArea = styled.textarea`
@@ -73,6 +101,11 @@ const TextArea = styled.textarea`
     font-size: 16px;
     background-color: #262626;
     border-radius: 10px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 100px;
+    }
 `;
 
 const Botao = styled.button`
@@ -85,6 +118,18 @@ const Botao = styled.button`
     cursor: pointer;
     font-size: 20px;
     line-height: 24px;
+
+    @media (max-width: 768px) {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+        width: 140px;
+        height: 45px;
+        font-size: 16px;
+    }
 `;
 
 const Form = styled.form`
@@ -95,6 +140,17 @@ const Form = styled.form`
     flex-direction: column;
     justify-content: space-between;
     margin-top: 10px;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+        padding: 10px;
+    }
 `
 
 const BoxBotoes = styled.div`
@@ -103,6 +159,13 @@ const BoxBotoes = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
 `
 
 const BoxTitulos = styled.div`
@@ -118,11 +181,26 @@ const BoxTitulos = styled.div`
         font-size: 60px;
         font-weight: 800;
         line-height: 70px;
+
+        @media (max-width: 768px) {
+            font-size: 40px;
+            line-height: 50px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 30px;
+            line-height: 40px;
+        }
     }
     p {
         font-size: 20px;
         font-weight: 400;
         line-height: 23px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
     }
 `
 
@@ -133,6 +211,13 @@ const BoxInputsPrimarios = styled.div`
     gap: 20px;
     flex-direction: row;
     justify-content: space-between;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
 `
 
 const BoxInputsSecundarios = styled.div`
@@ -142,6 +227,13 @@ const BoxInputsSecundarios = styled.div`
     gap: 20px;
     flex-direction: row;
     justify-content: space-between;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
 `
 
 const BoxDescricao = styled.div`
@@ -149,6 +241,11 @@ const BoxDescricao = styled.div`
     height: 155px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: auto;
+    }
 `
 
 function VideoNovo() {
