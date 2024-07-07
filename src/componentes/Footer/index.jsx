@@ -16,6 +16,23 @@ const FooterCustomizado = styled.footer`
     background-color: #000000E5;
     border-top: 4px solid #2271D1;
     box-shadow: 0px 5px 29px 0px #2271D1B2;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+        height: 100px;
+        gap: 20px;
+        font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+        height: 80px;
+        gap: 15px;
+        font-size: 16px;
+    }
 `
 
 function Footer() {

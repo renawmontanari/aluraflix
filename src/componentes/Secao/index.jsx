@@ -14,18 +14,45 @@ const ContainerSecao = styled.section`
     display: flex;
     gap: 40px;
     flex-direction: column;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+        gap: 30px;
+    }
 `
 
 const CardContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+
+    @media (max-width: 768px) {
+        gap: 30px;
+    }
+
+    @media (max-width: 480px) {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 const Card = styled.div`
-  width: 432px;
-  display: flex;
-  flex-direction: column;
+    width: 432px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
+    }
 `;
 
 const CategoriaTitulo = styled.div`
@@ -42,6 +69,16 @@ const CategoriaTitulo = styled.div`
     align-content: center;
     display: flex;
     justify-content: center;
+
+    @media (max-width: 768px) {
+        font-size: 28px;
+        height: 60px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 24px;
+        height: 50px;
+    }
 `
 
 const BoxVideo = styled.div`
@@ -75,6 +112,14 @@ const BoxVideo = styled.div`
                 return '#FFFFFF';
         }
     }} inset;
+
+    @media (max-width: 768px) {
+        height: 220px;
+    }
+
+    @media (max-width: 480px) {
+        height: 280px;
+    }
 `;
 
 const BoxBotoes = styled.div`
@@ -111,6 +156,14 @@ const BoxBotoes = styled.div`
         }
     }};
     background-color: black;
+
+    @media (max-width: 768px) {
+        height: 50px;
+    }
+
+    @media (max-width: 480px) {
+        height: 40px;
+    }
 `
 
 const Botoes = styled.div`
@@ -124,16 +177,42 @@ const Botoes = styled.div`
     font-weight: 800;
     border: none;
     background-color: black;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        width: 90px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+        width: 70px;
+    }
 `
 
 const IconeLixeiraCustomizado = styled(TbTrashX)`
     color: #FFF;
     font-size: 55px;
+
+    @media (max-width: 768px) {
+        font-size: 45px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 35px;
+    }
 `
 
 const IconeEditarCustomizado = styled(TbEdit)`
     color: #FFF;
     font-size: 25px;
+
+    @media (max-width: 768px) {
+        font-size: 20px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 18px;
+    }
 `
 
 const BotaoEditar = styled.button`
@@ -143,6 +222,14 @@ const BotaoEditar = styled.button`
     border: none;
     cursor: pointer;
     background-color: black;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+    }
 `
 
 const BotaoExcluir = styled.button`
@@ -152,6 +239,14 @@ const BotaoExcluir = styled.button`
     border: none;
     cursor: pointer;
     background-color: black;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+    }
 `
 
 const mudarCorDaCategoria = (categoria) => {
