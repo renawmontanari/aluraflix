@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import Notificacao from "../../componentes/Notificacao/Index";
 
 const ContainerVideoNovo = styled.section`
     width: 1440px;
@@ -254,6 +255,7 @@ function VideoNovo() {
     const [imagem, setImagem] = useState("");
     const [video, setVideo] = useState("");
     const [descricao, setDescricao] = useState("");
+    const [notification, setNotification] = useState({ message: '', type: '', visible: false });
 
     const aoMudar = (evento) => {
         const { name, value } = evento.target;
@@ -309,10 +311,10 @@ function VideoNovo() {
             setVideo("");
             setDescricao("");
 
-            alert("Novo card criado com sucesso!");
+            mostrarNotificacao("Novo card criado com sucesso!", "success");
         } catch (error) {
             console.error("Erro ao criar novo card:", error);
-            alert("Erro ao criar novo card. Por favor, tente novamente.");
+            mostrarNotificacao("Erro ao criar novo card. Por favor, tente novamente.", "error");
         }
     }
 
@@ -324,8 +326,20 @@ function VideoNovo() {
         setDescricao("");
     }
 
+    const mostrarNotificacao = (message, type) => {
+        setNotification({ message, type, visible: true });
+        setTimeout(() => {
+            setNotification({ ...notification, visible: false });
+        }, 3000);
+    };
+
     return (
         <>
+            <Notificacao
+                message={notification.message}
+                type={notification.type}
+                visible={notification.visible}
+            />
             <ContainerVideoNovo>
                 <BoxTitulos>
                     <h2>NOVO VÍDEO</h2>

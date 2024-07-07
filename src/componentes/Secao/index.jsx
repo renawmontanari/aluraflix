@@ -3,6 +3,7 @@ import { TbTrashX } from "react-icons/tb";
 import { TbEdit } from "react-icons/tb";
 import ModalEditar from "../ModalEditar";
 import { useState } from "react";
+import Notificacao from "../Notificacao/Index";
 
 const ContainerSecao = styled.section`
     width: 1440px;
@@ -265,6 +266,7 @@ const mudarCorDaCategoria = (categoria) => {
 function Secao({ categoria, cards, excluindo }) {
     const [modalAberto, setModalAberto] = useState(false);
     const [cardId, setCardId] = useState(null);
+    const [notification, setNotification] = useState({ message: '', type: '', visible: false });
 
     const estadoModalFechado = () => setModalAberto(false);
 
@@ -280,10 +282,10 @@ function Secao({ categoria, cards, excluindo }) {
                 }
 
                 excluindo(id);
-                alert("Card excluido com sucesso!");
+                mostrarNotificacao("Card excluído com sucesso!", "success");
             } catch (error) {
                 console.error("Erro ao deletar o card:", error);
-                alert("Erro ao excluir o card");
+                mostrarNotificacao("Erro ao excluir o card", "error");
             }
         }
     }
@@ -293,12 +295,24 @@ function Secao({ categoria, cards, excluindo }) {
         setModalAberto(true);
     };
 
+    const mostrarNotificacao = (message, type) => {
+        setNotification({ message, type, visible: true });
+        setTimeout(() => {
+            setNotification({ ...notification, visible: false });
+        }, 3000);
+    };
+
     return (
-        <ContainerSecao>
+        <ContainerSecao>   
             <CategoriaTitulo categoria={categoria}>
                 {categoria}
             </CategoriaTitulo>
             <CardContainer>
+            <Notificacao
+                message={notification.message}
+                type={notification.type}
+                visible={notification.visible}
+            />
                 {cards && cards.map(card => (
                     <Card key={card.id}>
                         <BoxVideo categoria={categoria}>
