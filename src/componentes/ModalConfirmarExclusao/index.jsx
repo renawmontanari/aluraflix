@@ -14,9 +14,9 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContainer = styled.div`
-    background-color: #fff;
+    background-color: #2271d1;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 `;
@@ -24,12 +24,13 @@ const ModalContainer = styled.div`
 const ModalTitulo = styled.h2`
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: #ffffff;
+    padding-bottom: 25px;
 `;
 
 const ModalMensagem = styled.p`
     font-size: 18px;
-    color: #666;
+    color: #ffffff;
 `;
 
 const BotaoGrupo = styled.div`
