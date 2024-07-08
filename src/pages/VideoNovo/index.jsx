@@ -293,7 +293,7 @@ function VideoNovo() {
         };
 
         try {
-            const response = await fetch("http://localhost:3000/cards", {
+            const response = await fetch("https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

@@ -284,7 +284,7 @@ function Secao({ categoria, cards, excluindo }) {
 
     const excluirCard = async () => {
         try {
-            const resposta = await fetch(`http://localhost:3000/cards/${idExcluir}`, {
+            const resposta = await fetch(`https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards/${idExcluir}`, {
                 method: 'DELETE'
             });
 

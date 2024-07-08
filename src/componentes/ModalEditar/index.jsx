@@ -240,7 +240,7 @@ function ModalEditar({
         if (aberto) {
             const requisicaoDadosCard = async () => {
                 try {
-                    const resposta = await fetch(`http://localhost:3000/cards/${cardId}`);
+                    const resposta = await fetch(`https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards/${cardId}`);
                     const data = await resposta.json();
                     const { titulo, categoria, imagem, video, descricao } = data;
                     setLocalTitulo(titulo);
@@ -267,7 +267,7 @@ function ModalEditar({
         };
 
         try {
-            const resposta = await fetch(`http://localhost:3000/cards/${cardId}`, {
+            const resposta = await fetch(`https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards/${cardId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

@@ -7,7 +7,7 @@ function Inicio() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/cards')
+    fetch('https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards')
       .then(resposta => resposta.json())
       .then(dados => {
         setCards(dados || [])
