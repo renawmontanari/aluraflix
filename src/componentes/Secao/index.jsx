@@ -4,6 +4,7 @@ import { TbEdit } from "react-icons/tb";
 import ModalEditar from "../ModalEditar";
 import { useState } from "react";
 import Notificacao from "../Notificacao/Index";
+import ModalConfirmarExclusao from "../ModalConfirmarExclusao";
 
 const ContainerSecao = styled.section`
     width: 1440px;
@@ -267,28 +268,39 @@ function Secao({ categoria, cards, excluindo }) {
     const [modalAberto, setModalAberto] = useState(false);
     const [cardId, setCardId] = useState(null);
     const [notification, setNotification] = useState({ message: '', type: '', visible: false });
+    const [modalEstaAberto, setModalEstaAberto] = useState(false);
+    const [idExcluir, setIdExcluir] = useState(null);
+
+    const abrirModal = (id) => {
+        setIdExcluir(id);
+        setModalEstaAberto(true);
+    };
+
+    const fecharModal = () => {
+        setModalEstaAberto(false);
+    };
 
     const estadoModalFechado = () => setModalAberto(false);
 
-    const excluirCard = async (id) => {
-        if (window.confirm("Você tem certeza que deseja excluir este card?")) {
-            try {
-                const resposta = await fetch(`http://localhost:3000/cards/${id}`, {
-                    method: 'DELETE'
-                });
+    const excluirCard = async () => {
+        try {
+            const resposta = await fetch(`http://localhost:3000/cards/${idExcluir}`, {
+                method: 'DELETE'
+            });
 
-                if (!resposta.ok) {
-                    throw new Error('Erro ao excluir o card');
-                }
-
-                excluindo(id);
-                mostrarNotificacao("Card excluído com sucesso!", "success");
-            } catch (error) {
-                console.error("Erro ao deletar o card:", error);
-                mostrarNotificacao("Erro ao excluir o card", "error");
+            if (!resposta.ok) {
+                throw new Error('Erro ao excluir o card');
             }
+
+            excluindo(idExcluir);
+            mostrarNotificacao("Card excluído com sucesso!", "success");
+        } catch (error) {
+            console.error("Erro ao deletar o card:", error);
+            mostrarNotificacao("Erro ao excluir o card", "error");
+        } finally {
+            fecharModal();
         }
-    }
+    };
 
     const abrirModalParaEdicao = (id) => {
         setCardId(id);
@@ -303,16 +315,16 @@ function Secao({ categoria, cards, excluindo }) {
     };
 
     return (
-        <ContainerSecao>   
+        <ContainerSecao>
             <CategoriaTitulo categoria={categoria}>
                 {categoria}
             </CategoriaTitulo>
             <CardContainer>
-            <Notificacao
-                message={notification.message}
-                type={notification.type}
-                visible={notification.visible}
-            />
+                <Notificacao
+                    message={notification.message}
+                    type={notification.type}
+                    visible={notification.visible}
+                />
                 {cards && cards.map(card => (
                     <Card key={card.id}>
                         <BoxVideo categoria={categoria}>
@@ -320,14 +332,14 @@ function Secao({ categoria, cards, excluindo }) {
                                 width="420"
                                 height="250"
                                 src={card.video}
-                                title={card.titulo}  
+                                title={card.titulo}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                >
+                            >
                             </iframe>
                         </BoxVideo>
                         <BoxBotoes categoria={categoria}>
-                            <Botoes onClick={() => excluirCard(card.id)}>
-                                <IconeLixeiraCustomizado /> 
+                            <Botoes onClick={() => abrirModal(card.id)}>
+                                <IconeLixeiraCustomizado />
                                 <BotaoExcluir>DELETAR</BotaoExcluir>
                             </Botoes>
                             <Botoes>
@@ -339,6 +351,11 @@ function Secao({ categoria, cards, excluindo }) {
                     </Card>
                 ))}
             </CardContainer>
+            <ModalConfirmarExclusao
+                estaAberto={modalEstaAberto}
+                estaFechado={fecharModal}
+                confirmar={excluirCard}
+            />
         </ContainerSecao>
     )
 }

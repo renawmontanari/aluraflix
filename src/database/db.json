@@ -33,14 +33,6 @@
       "id": "4"
     },
     {
-      "titulo": "Como deixar o Layout Responsivo no seu site",
-      "categoria": "frontend",
-      "imagem": "https://www.alura.com.br/assets/img/escola-categorias/sharing/escola-front-end-share.1712930781.jpg",
-      "video": "https://www.youtube.com/embed/kyFiT4ofMwk?si=SMe2hSQ4gkQvWARV",
-      "descricao": "Escola de fronend da Alura no brasil Editado agora com Monica.",
-      "id": "5"
-    },
-    {
       "titulo": "TEste",
       "categoria": "mobile",
       "imagem": "https://geekfanaticos.fbitsstatic.net/img/p/funko-pop-doctor-strange-1000-doctor-strange-and-the-multiverse-of-madness-doutor-estranho-e-o-73363/259850.jpg?w=540&h=540&v=no-change&qs=ignore",
@@ -55,14 +47,6 @@
       "video": "https://www.youtube.com/embed/vf9P_PycgRw?si=lH-IKkawYPvmb-Ek",
       "descricao": "rerererererty",
       "id": "e2e3"
-    },
-    {
-      "id": "a0b2",
-      "titulo": "Teste2223434",
-      "categoria": "backend",
-      "imagem": "https://geekfanaticos.fbitsstatic.net/img/p/funko-pop-doctor-strange-169-doutor-estranho-marvel-70604/257088.jpg?w=540&h=540&v=no-change&qs=ignore",
-      "video": "https://www.youtube.com/embed/vf9P_PycgRw?si=lH-IKkawYPvmb-Ek",
-      "descricao": "terererererererer"
     }
   ]
 }
