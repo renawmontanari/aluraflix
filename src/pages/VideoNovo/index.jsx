@@ -251,7 +251,9 @@ const BoxDescricao = styled.div`
 
 const Error = styled.div`
     color: red;
-    font-size: 14px;
+    margin-top: 6px;
+    letter-spacing: 2px;
+    font-size: 16px;
 `;
 
 function VideoNovo() {
@@ -273,7 +275,60 @@ function VideoNovo() {
     }
 
     const validar = () => {
-        
+        const novoErrors = {};
+
+        const campos = { titulo, categoria, imagem, video, descricao };
+
+        Object.entries(campos).forEach(([key, value]) => {
+            switch (key) {
+                case "titulo":
+                    if (!value) novoErrors[key] = "O Título é obrigatório";
+                    break;
+                case "categoria":
+                    if (!value) novoErrors[key] = "A categoria é obrigatória";
+                    break;
+                case "imagem":
+                    if (!value) {
+                        novoErrors[key] = "A imagem é obrigatória";
+                    } else if (!validarURL(value)) {
+                        novoErrors[key] = "A URL da imagem é inválida";
+                    }
+                    break;
+                case "video":
+                    if (!value) {
+                        novoErrors[key] = "O vídeo é obrigatório";  
+                    } else if (!validarURL(value)) {
+                        novoErrors[key] = "A URL do vídeo é inválida";
+                    }
+                    break;
+                case "descricao":
+                    if (!value) novoErrors[key] = "A descrição é obrigatória";
+                    break;
+            }
+        });
+
+        return novoErrors;
+    };
+
+    const limparErrosInputAoDigitar = (evento) => {
+        const { name, value } = evento.target;
+
+        setErrors((prevErrors) => {
+            const { [name]: removedError, ...newErrors } = prevErrors;
+            return newErrors;
+        });
+
+        const atualizarEstado = {
+            titulo,
+            categoria,
+            imagem,
+            video,
+            descricao
+        };
+
+        if (atualizarEstado[name]) {
+            atualizarEstado[name](value);
+        }
     }
 
     const aoMudar = (evento) => {
@@ -303,6 +358,8 @@ function VideoNovo() {
     const aoEnviar = async (evento) => {
         evento.preventDefault();
 
+        const novoErrors = validar();
+
         const novoCard = {
             titulo,
             categoria,
@@ -311,29 +368,32 @@ function VideoNovo() {
             descricao
         };
 
-        try {
-            const response = await fetch("https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(novoCard)
-            });
+        if (Object.keys(novoErrors).length === 0) {
+            try {
+                const response = await fetch("https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(novoCard)
+                });
 
-            if (!response.ok) {
-                throw new Error("Erro ao criar novo card.");
+                if (!response.ok) {
+                    throw new Error("Erro ao criar novo card.");
+                }
+
+                setTitulo("");
+                setCategoria("");
+                setImagem("");
+                setVideo("");
+                setDescricao("");
+                mostrarNotificacao("Novo card criado com sucesso!", "success");
+            } catch (error) {
+                console.error("Erro ao criar novo card:", error);
+                mostrarNotificacao("Erro ao criar novo card. Por favor, tente novamente.", "error");
             }
-
-            setTitulo("");
-            setCategoria("");
-            setImagem("");
-            setVideo("");
-            setDescricao("");
-
-            mostrarNotificacao("Novo card criado com sucesso!", "success");
-        } catch (error) {
-            console.error("Erro ao criar novo card:", error);
-            mostrarNotificacao("Erro ao criar novo card. Por favor, tente novamente.", "error");
+        } else {
+            setErrors(novoErrors);
         }
     }
 
@@ -350,6 +410,11 @@ function VideoNovo() {
         setTimeout(() => {
             setNotification({ ...notification, visible: false });
         }, 3000);
+    };
+
+    const combinarOnChanges = (limparErrosInputAoDigitar, aoMudar) => (evento) => {
+        if (limparErrosInputAoDigitar) limparErrosInputAoDigitar(evento);
+        if (aoMudar) aoMudar(evento);
     };
 
     return (
@@ -374,22 +439,24 @@ function VideoNovo() {
                                     type="text" 
                                     name="titulo" 
                                     value={titulo} 
-                                    onChange={aoMudar} 
+                                    onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                     placeholder="O que é JavaScript?" 
                                 />
+                                {errors.titulo && <Error>{errors.titulo}</Error>}
                             </div>
                             <div>
                                 <Label>Categoria</Label>
                                 <Select 
                                     name="categoria" 
                                     value={categoria} 
-                                    onChange={aoMudar}
+                                    onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                 >
                                     <option value="">Selecione uma categoria</option>
                                     <option value="frontend">Frontend</option>
                                     <option value="backend">Backend</option>
                                     <option value="mobile">Mobile</option>
                                 </Select>
+                                {errors.categoria && <Error>{errors.categoria}</Error>}
                             </div>
                         </BoxInputsPrimarios>
                         <BoxInputsSecundarios>
@@ -399,9 +466,10 @@ function VideoNovo() {
                                     type="text" 
                                     name="imagem"
                                     value={imagem}
-                                    onChange={aoMudar}
+                                    onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                     placeholder="URL da imagem" 
                                 />
+                                {errors.imagem && <Error>{errors.imagem}</Error>}
                             </div>
                             <div>
                                 <Label>Vídeo</Label>
@@ -409,9 +477,10 @@ function VideoNovo() {
                                     type="text"
                                     name="video"
                                     value={video}
-                                    onChange={aoMudar}
+                                    onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                     placeholder="URL do vídeo" 
                                 />
+                                {errors.video && <Error>{errors.video}</Error>}
                             </div>
                         </BoxInputsSecundarios>
                         <BoxDescricao>
@@ -419,9 +488,10 @@ function VideoNovo() {
                             <TextArea 
                                 name="descricao" 
                                 value={descricao}
-                                onChange={aoMudar}
+                                onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                 placeholder="Descrição do conteúdo"
-                            ></TextArea>
+                            />
+                            {errors.descricao && <Error>{errors.descricao}</Error>}
                         </BoxDescricao>
                         <BoxBotoes>
                             <Botao type="submit">SALVAR</Botao>

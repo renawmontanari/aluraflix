@@ -223,17 +223,16 @@ const IconeFechar = styled(RiCloseCircleLine)`
     }
 `
 
-// eslint-disable-next-line react/prop-types
-function ModalEditar({ 
-    aberto, 
+function ModalEditar({
+    aberto,
     fechado,
     cardId
- }) {
+}) {
     const [titulo, setLocalTitulo] = useState("");
     const [categoria, setLocalCategoria] = useState("");
     const [imagem, setLocalImagem] = useState("");
     const [video, setLocalVideo] = useState("");
-    const [descricao, setLocalDescricao] = useState(""); 
+    const [descricao, setLocalDescricao] = useState("");
     const [notification, setNotification] = useState({ message: '', type: '', visible: false });
 
     useEffect(() => {
@@ -252,7 +251,7 @@ function ModalEditar({
                     console.error("Erro ao buscar dados do card:", error);
                 }
             };
-            
+
             requisicaoDadosCard();
         }
     }, [aberto, cardId]);
@@ -278,6 +277,8 @@ function ModalEditar({
             if (!resposta.ok) {
                 throw new Error('Erro ao atualizar card');
             }
+
+            setLocalCategoria(cardAtualizado.categoria);
 
             mostrarNotificacao("Card atualizado com sucesso!", "success");
             fechado();
@@ -318,11 +319,11 @@ function ModalEditar({
                     <TituloEditar>EDITAR CARD:</TituloEditar>
                     <div>
                         <Label>Título</Label>
-                        <Input 
-                            type="text" 
-                            value={titulo} 
-                            onChange={(evento) => setLocalTitulo(evento.target.value)} 
-                            placeholder="O que é JavaScript?" 
+                        <Input
+                            type="text"
+                            value={titulo}
+                            onChange={(evento) => setLocalTitulo(evento.target.value)}
+                            placeholder="O que é JavaScript?"
                         />
                     </div>
 
@@ -341,29 +342,29 @@ function ModalEditar({
 
                     <div>
                         <Label>Imagem</Label>
-                        <Input 
-                            type="text" 
-                            value={imagem} 
-                            onChange={(evento) => setLocalImagem(evento.target.value)} 
-                            placeholder="URL da imagem" 
+                        <Input
+                            type="text"
+                            value={imagem}
+                            onChange={(evento) => setLocalImagem(evento.target.value)}
+                            placeholder="URL da imagem"
                         />
                     </div>
 
                     <div>
                         <Label>Vídeo</Label>
-                        <Input 
-                            type="text" 
-                            value={video} 
-                            onChange={(evento) => setLocalVideo(evento.target.value)} 
-                            placeholder="URL do vídeo" 
+                        <Input
+                            type="text"
+                            value={video}
+                            onChange={(evento) => setLocalVideo(evento.target.value)}
+                            placeholder="URL do vídeo"
                         />
                     </div>
 
                     <div>
                         <Label>Descrição</Label>
-                        <TextArea 
-                            value={descricao} 
-                            onChange={(evento) => setLocalDescricao(evento.target.value)} 
+                        <TextArea
+                            value={descricao}
+                            onChange={(evento) => setLocalDescricao(evento.target.value)}
                             placeholder="Descrição do conteúdo"></TextArea>
                     </div>
 
