@@ -12,9 +12,6 @@ O desafio foi desenvolver do zero, a partir de um design no Figma, o projeto Alu
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Como Usar](#como-usar)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
-- [Contato](#contato)
 
 ## Sobre
 
