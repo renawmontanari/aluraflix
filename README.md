@@ -84,9 +84,9 @@ Siga os passos abaixo para instalar e configurar o projeto em sua máquina local
 3. Faça as alterações necessárias.
 4. Clique no botão "Salvar" para atualizar o card.
 
-###Estrutura do Projeto
+## Estrutura do Projeto
 
-##A estrutura de pastas do projeto é organizada da seguinte maneira:
+### A estrutura de pastas do projeto é organizada da seguinte maneira:
 
 src/
 ├── componentes/
