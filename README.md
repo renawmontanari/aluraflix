@@ -60,6 +60,50 @@ Siga os passos abaixo para instalar e configurar o projeto em sua máquina local
 
 5. Abra o navegador e acesse:
 
-  ```bash
-  http://localhost:3000
+   ```bash
+   http://localhost:3000
+
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário
+- **React Router**: Biblioteca para gerenciamento de rotas no React
+- **Styled-components**: Biblioteca para estilização de componentes React
+- **React-icons**: Biblioteca de ícones para React
+- **Fetch API**: Interface para fazer requisições HTTP
+- **MockAPI**: Serviço para simular uma API RESTful
+
+## Como Usar
+
+### Criar um novo card
+
+1. Navegue até a página de criação de novo card.
+2. Preencha os campos obrigatórios: título, categoria, imagem, vídeo e descrição.
+3. Clique no botão "Salvar" para criar o novo card.
+
+### Editar um card existente
+
+1. Navegue até o card que deseja editar.
+2. Clique no botão "Editar".
+3. Faça as alterações necessárias.
+4. Clique no botão "Salvar" para atualizar o card.
+
+###Estrutura do Projeto
+
+##A estrutura de pastas do projeto é organizada da seguinte maneira:
+
+src/
+├── componentes/
+│   ├── Banner/
+│   ├── Footer/
+│   ├── Header/
+│   ├── ModalEditar/
+│   ├── Secao/
+├── Pages/
+│   ├── Inicio/
+│   ├── PaginaBase/
+│   ├── VideoNovo/
+├── App.css
+├── App.jsx
+├── index.jsx
+├── routes.jsx
 
