@@ -44,5 +44,22 @@ Siga os passos abaixo para instalar e configurar o projeto em sua máquina local
    git clone https://github.com/seu-usuario/aluraflix-challenge-one.git
 
 2. Navegue até o diretório do projeto:
+
     ```bash
     cd aluraflix-challenge-one
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+
+4. Inicie o servidor de desenvolvimento:
+
+  ```bash
+  npm start
+
+5. Abra o navegador e acesse:
+
+  ```bash
+  http://localhost:3000
+ 
