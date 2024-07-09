@@ -1,4 +1,7 @@
-# Aluraflix Challenge ONE
+![Aluraflix-challenge](https://github.com/renawmontanari/aluraflix/assets/101996367/73d87b08-2494-4079-99e0-6978dbfcdd27)
+# Aluraflix
+
+ Challenge ONE
 
 O desafio foi desenvolver do zero, a partir de um design no Figma, o projeto Aluraflix usando a tecnologia React. Este projeto envolve a criação de componentes reutilizáveis, a implementação de páginas dinâmicas e o uso de diversas tecnologias modernas para criar uma aplicação robusta e estilizada.
 
