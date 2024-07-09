@@ -88,19 +88,6 @@ Siga os passos abaixo para instalar e configurar o projeto em sua máquina local
 
 ### A estrutura de pastas do projeto é organizada da seguinte maneira:
 
-src/
-├── componentes/
-│   ├── Banner/
-│   ├── Footer/
-│   ├── Header/
-│   ├── ModalEditar/
-│   ├── Secao/
-├── Pages/
-│   ├── Inicio/
-│   ├── PaginaBase/
-│   ├── VideoNovo/
-├── App.css
-├── App.jsx
-├── index.jsx
-├── routes.jsx
+![estruturaAluraflix](https://github.com/renawmontanari/aluraflix/assets/101996367/173d8313-a595-488a-bdef-dfaafd6c5cde)
+
 
