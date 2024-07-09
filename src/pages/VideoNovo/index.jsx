@@ -249,13 +249,32 @@ const BoxDescricao = styled.div`
     }
 `
 
+const Error = styled.div`
+    color: red;
+    font-size: 14px;
+`;
+
 function VideoNovo() {
     const [titulo, setTitulo] = useState("");
     const [categoria, setCategoria] = useState("");
     const [imagem, setImagem] = useState("");
     const [video, setVideo] = useState("");
     const [descricao, setDescricao] = useState("");
+    const [errors, setErrors] = useState({});
     const [notification, setNotification] = useState({ message: '', type: '', visible: false });
+
+    const validarURL = (url) => {
+        try {
+            new URL(url);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
+
+    const validar = () => {
+        
+    }
 
     const aoMudar = (evento) => {
         const { name, value } = evento.target;
