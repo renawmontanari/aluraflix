@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import Notificacao from "../Notificacao/Index";
+import dominiosProibidos from '../../database/dominiosProibidos.json';
 
 const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.281);
@@ -223,6 +224,13 @@ const IconeFechar = styled(RiCloseCircleLine)`
     }
 `
 
+const Error = styled.div`
+    color: red;
+    margin-top: 6px;
+    letter-spacing: 2px;
+    font-size: 16px;
+`;
+
 function ModalEditar({
     aberto,
     fechado,
@@ -233,6 +241,7 @@ function ModalEditar({
     const [imagem, setLocalImagem] = useState("");
     const [video, setLocalVideo] = useState("");
     const [descricao, setLocalDescricao] = useState("");
+    const [videoError, setVideoError] = useState('');
     const [notification, setNotification] = useState({ message: '', type: '', visible: false });
 
     useEffect(() => {
@@ -264,6 +273,14 @@ function ModalEditar({
             video: video,
             descricao: descricao
         };
+
+        const dominioProibidoEncontrado = dominiosProibidos.some(proibido => video.includes(proibido));
+        if (dominioProibidoEncontrado) {
+            setVideoError('Inclusão de vídeo com conteúdo adulto não permitido.');
+            return;
+        } else {
+            setVideoError('');
+        }
 
         try {
             const resposta = await fetch(`https://668c6b2b0b61b8d23b0d4f6f.mockapi.io/cards/${cardId}`, {
@@ -355,9 +372,13 @@ function ModalEditar({
                         <Input
                             type="text"
                             value={video}
-                            onChange={(evento) => setLocalVideo(evento.target.value)}
+                            onChange={(evento) => {
+                                setLocalVideo(evento.target.value);
+                                setVideoError('');
+                            }}
                             placeholder="URL do vídeo"
                         />
+                        {videoError && <Error>{videoError}</Error>}
                     </div>
 
                     <div>
