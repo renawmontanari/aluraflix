@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import dominiosProibidos from '../../database/dominiosProibidos.json';
 import Notificacao from "../../componentes/Notificacao/Index";
 
 const ContainerVideoNovo = styled.section`
@@ -268,6 +269,10 @@ function VideoNovo() {
     const validarURL = (url) => {
         try {
             new URL(url);
+            const dominio = new URL(url).hostname;
+            if (dominiosProibidos.some(proibido => dominio.includes(proibido))) {
+                return false;
+            }
             return true;
         } catch (_) {
             return false;
@@ -296,7 +301,7 @@ function VideoNovo() {
                     break;
                 case "video":
                     if (!value) {
-                        novoErrors[key] = "O vídeo é obrigatório";  
+                        novoErrors[key] = "O vídeo é obrigatório";
                     } else if (!validarURL(value)) {
                         novoErrors[key] = "A URL do vídeo é inválida";
                     }
@@ -309,6 +314,7 @@ function VideoNovo() {
 
         return novoErrors;
     };
+
 
     const limparErrosInputAoDigitar = (evento) => {
         const { name, value } = evento.target;
@@ -329,7 +335,7 @@ function VideoNovo() {
         if (atualizarEstado[name]) {
             atualizarEstado[name](value);
         }
-    }
+    };
 
     const aoMudar = (evento) => {
         const { name, value } = evento.target;
@@ -395,7 +401,7 @@ function VideoNovo() {
         } else {
             setErrors(novoErrors);
         }
-    }
+    };
 
     const limparInputs = () => {
         setTitulo("");
@@ -403,7 +409,7 @@ function VideoNovo() {
         setImagem("");
         setVideo("");
         setDescricao("");
-    }
+    };
 
     const mostrarNotificacao = (message, type) => {
         setNotification({ message, type, visible: true });
@@ -430,25 +436,25 @@ function VideoNovo() {
                     <p>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO.</p>
                 </BoxTitulos>
                 <div>
-                    <Form onSubmit={aoEnviar}> 
+                    <Form onSubmit={aoEnviar}>
                         <TituloEditar>Criar Card:</TituloEditar>
                         <BoxInputsPrimarios>
                             <div>
                                 <Label>Título</Label>
-                                <Input 
-                                    type="text" 
-                                    name="titulo" 
-                                    value={titulo} 
+                                <Input
+                                    type="text"
+                                    name="titulo"
+                                    value={titulo}
                                     onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
-                                    placeholder="O que é JavaScript?" 
+                                    placeholder="O que é JavaScript?"
                                 />
                                 {errors.titulo && <Error>{errors.titulo}</Error>}
                             </div>
                             <div>
                                 <Label>Categoria</Label>
-                                <Select 
-                                    name="categoria" 
-                                    value={categoria} 
+                                <Select
+                                    name="categoria"
+                                    value={categoria}
                                     onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                 >
                                     <option value="">Selecione uma categoria</option>
@@ -460,33 +466,33 @@ function VideoNovo() {
                             </div>
                         </BoxInputsPrimarios>
                         <BoxInputsSecundarios>
-                            <div>  
+                            <div>
                                 <Label>Imagem</Label>
-                                <Input 
-                                    type="text" 
+                                <Input
+                                    type="text"
                                     name="imagem"
                                     value={imagem}
                                     onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
-                                    placeholder="URL da imagem" 
+                                    placeholder="URL da imagem"
                                 />
                                 {errors.imagem && <Error>{errors.imagem}</Error>}
                             </div>
                             <div>
                                 <Label>Vídeo</Label>
-                                <Input 
+                                <Input
                                     type="text"
                                     name="video"
                                     value={video}
                                     onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
-                                    placeholder="URL do vídeo" 
+                                    placeholder="URL do vídeo"
                                 />
                                 {errors.video && <Error>{errors.video}</Error>}
                             </div>
                         </BoxInputsSecundarios>
                         <BoxDescricao>
                             <Label>Descrição</Label>
-                            <TextArea 
-                                name="descricao" 
+                            <TextArea
+                                name="descricao"
                                 value={descricao}
                                 onChange={combinarOnChanges(aoMudar, limparErrosInputAoDigitar)}
                                 placeholder="Descrição do conteúdo"
