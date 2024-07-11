@@ -38,7 +38,7 @@ const DialogEstilizado = styled.dialog`
     }
 
     @media (max-width: 480px) {
-        width: 95%;
+        width: auto;
         height: auto;
     }
 `;
@@ -77,6 +77,12 @@ const TituloEditar = styled.h2`
 
     @media (max-width: 480px) {
         font-size: 30px;
+    }
+`
+
+const BoxInputs = styled.div`
+    @media (max-width: 480px) {
+        width: 350px;
     }
 `
 
@@ -206,7 +212,7 @@ const BoxBotoes = styled.div`
     }
 
     @media (max-width: 480px) {
-        flex-direction: column;
+        flex-direction: row;
         gap: 20px;
     }
 `
@@ -334,7 +340,7 @@ function ModalEditar({
                 </BotaoFecharModal>
                 <Form>
                     <TituloEditar>EDITAR CARD:</TituloEditar>
-                    <div>
+                    <BoxInputs>
                         <Label>Título</Label>
                         <Input
                             type="text"
@@ -342,9 +348,9 @@ function ModalEditar({
                             onChange={(evento) => setLocalTitulo(evento.target.value)}
                             placeholder="O que é JavaScript?"
                         />
-                    </div>
+                    </BoxInputs>
 
-                    <div>
+                    <BoxInputs>
                         <Label>Categoria</Label>
                         <Select
                             value={categoria}
@@ -355,9 +361,9 @@ function ModalEditar({
                             <option value="backend">Backend</option>
                             <option value="mobile">Mobile</option>
                         </Select>
-                    </div>
+                    </BoxInputs>
 
-                    <div>
+                    <BoxInputs>
                         <Label>Imagem</Label>
                         <Input
                             type="text"
@@ -365,9 +371,9 @@ function ModalEditar({
                             onChange={(evento) => setLocalImagem(evento.target.value)}
                             placeholder="URL da imagem"
                         />
-                    </div>
+                    </BoxInputs>
 
-                    <div>
+                    <BoxInputs>
                         <Label>Vídeo</Label>
                         <Input
                             type="text"
@@ -379,15 +385,15 @@ function ModalEditar({
                             placeholder="URL do vídeo"
                         />
                         {videoError && <Error>{videoError}</Error>}
-                    </div>
+                    </BoxInputs>
 
-                    <div>
+                    <BoxInputs>
                         <Label>Descrição</Label>
                         <TextArea
                             value={descricao}
                             onChange={(evento) => setLocalDescricao(evento.target.value)}
                             placeholder="Descrição do conteúdo"></TextArea>
-                    </div>
+                    </BoxInputs>
 
                     <BoxBotoes>
                         <Botao type="button" onClick={aoSalvar}>SALVAR</Botao>
