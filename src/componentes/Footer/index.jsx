@@ -29,9 +29,11 @@ const FooterCustomizado = styled.footer`
     }
 
     @media (max-width: 480px) {
-        height: 80px;
-        gap: 15px;
+        width: 400px;
         font-size: 16px;
+        p {
+            font-size: 14px;
+        }
     }
 `
 

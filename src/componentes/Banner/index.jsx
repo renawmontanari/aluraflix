@@ -20,6 +20,7 @@ const ContainerBanner = styled.section`
     }
 
     @media (max-width: 480px) {
+        width: auto;
         padding: 20px;
     }
 `;
@@ -34,6 +35,11 @@ const BackgroundImg = styled.img`
     object-fit: cover;
 
     @media (max-width: 768px) {
+        opacity: 0.5;
+    }
+
+    @media (max-width: 480px) {
+        width: 445px;
         opacity: 0.5;
     }
 `;
@@ -173,8 +179,8 @@ function Banner() {
                 </Content>
                 <ContentVideo>
                     <iframe 
-                        width="646" 
-                        height="333" 
+                        width="100%" 
+                        height="100%" 
                         src="https://www.youtube.com/embed/6IuQUgeDPg0?si=icXy_QZyK2Ja-7rT" 
                         title="YouTube video player" 
                         frameborder="0" 

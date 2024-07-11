@@ -29,6 +29,7 @@ const ContainerHeader = styled.header`
     }
 
     @media (max-width: 480px) {
+        width: 100%;
         padding: 10px;
     }
 `
@@ -40,6 +41,11 @@ const CaixaBotao = styled.div`
 
     @media (max-width: 768px) {
         flex-direction: column;
+        gap: 15px;
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: row;
         gap: 15px;
     }
 `
@@ -63,6 +69,11 @@ const BotaoCustomizado = styled.button`
 
     @media (max-width: 768px) {
         width: 100%;
+    }
+
+    @media (max-width: 480px) {
+        width: 180px;
+        margin-top: 10px;
     }
 `
 

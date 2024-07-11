@@ -25,6 +25,10 @@ const ContainerSecao = styled.section`
     @media (max-width: 768px) {
         gap: 30px;
     }
+
+    @media (max-width: 480px) {
+        padding: 0 0;
+    }
 `
 
 const CardContainer = styled.div`
@@ -39,7 +43,6 @@ const CardContainer = styled.div`
     @media (max-width: 480px) {
         gap: 20px;
         flex-direction: column;
-        align-items: center;
     }
 `;
 
@@ -329,8 +332,8 @@ function Secao({ categoria, cards, excluindo }) {
                     <Card key={card.id}>
                         <BoxVideo categoria={categoria}>
                             <iframe
-                                width="420"
-                                height="250"
+                                width="100%"
+                                height="100%"
                                 src={card.video}
                                 title={card.titulo}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
