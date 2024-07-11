@@ -25,6 +25,10 @@ const ContainerVideoNovo = styled.section`
         height: auto;
         padding: 10px;
     }
+
+    @media (max-width: 480px) {
+        width: auto;
+    }
 `
 
 const Label = styled.label`
@@ -168,6 +172,10 @@ const BoxBotoes = styled.div`
         gap: 10px;
         align-items: center;
     }
+
+    @media (max-width: 480px) {
+        flex-direction: row;
+    }
 `
 
 const BoxTitulos = styled.div`
@@ -202,6 +210,13 @@ const BoxTitulos = styled.div`
         @media (max-width: 768px) {
             font-size: 16px;
             line-height: 20px;
+        }
+
+        @media (max-width: 480px) {
+            width: 300px;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
         }
     }
 `
