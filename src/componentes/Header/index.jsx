@@ -63,6 +63,8 @@ const BotaoCustomizado = styled.button`
     ${({ ativo }) =>
         ativo && css`
             border-color: #2271D1;
+            background-color: black;
+            color: #2271D1;
         `
     }
 
