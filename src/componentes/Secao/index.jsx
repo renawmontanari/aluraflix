@@ -43,7 +43,7 @@ const CardContainer = styled.div`
 
     @media (max-width: 480px) {
         flex-wrap: nowrap;
-        gap: 58px;
+        gap: 65px;
         overflow-x: auto;
     }
 `;
