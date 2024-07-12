@@ -168,9 +168,10 @@ const BoxBotoes = styled.div`
 
     @media (max-width: 768px) {
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
         align-items: center;
+        margin-top: 10px;
     }
 
     @media (max-width: 480px) {
@@ -263,6 +264,10 @@ const BoxDescricao = styled.div`
         width: 100%;
         height: auto;
     }
+
+    @media (max-width: 768px) {
+        width: 600px;
+    }
 `
 
 const Error = styled.div`
@@ -270,6 +275,10 @@ const Error = styled.div`
     margin-top: 6px;
     letter-spacing: 2px;
     font-size: 16px;
+`;
+
+const BoxInputs = styled.div`
+    width: 600px;
 `;
 
 function VideoNovo() {
@@ -454,7 +463,7 @@ function VideoNovo() {
                     <Form onSubmit={aoEnviar}>
                         <TituloEditar>Criar Card:</TituloEditar>
                         <BoxInputsPrimarios>
-                            <div>
+                            <BoxInputs>
                                 <Label>Título</Label>
                                 <Input
                                     type="text"
@@ -464,8 +473,8 @@ function VideoNovo() {
                                     placeholder="O que é JavaScript?"
                                 />
                                 {errors.titulo && <Error>{errors.titulo}</Error>}
-                            </div>
-                            <div>
+                            </BoxInputs>
+                            <BoxInputs>
                                 <Label>Categoria</Label>
                                 <Select
                                     name="categoria"
@@ -478,10 +487,10 @@ function VideoNovo() {
                                     <option value="mobile">Mobile</option>
                                 </Select>
                                 {errors.categoria && <Error>{errors.categoria}</Error>}
-                            </div>
+                            </BoxInputs>
                         </BoxInputsPrimarios>
                         <BoxInputsSecundarios>
-                            <div>
+                            <BoxInputs>
                                 <Label>Imagem</Label>
                                 <Input
                                     type="text"
@@ -491,8 +500,8 @@ function VideoNovo() {
                                     placeholder="URL da imagem"
                                 />
                                 {errors.imagem && <Error>{errors.imagem}</Error>}
-                            </div>
-                            <div>
+                            </BoxInputs>
+                            <BoxInputs>
                                 <Label>Vídeo</Label>
                                 <Input
                                     type="text"
@@ -502,7 +511,7 @@ function VideoNovo() {
                                     placeholder="URL do vídeo"
                                 />
                                 {errors.video && <Error>{errors.video}</Error>}
-                            </div>
+                            </BoxInputs>
                         </BoxInputsSecundarios>
                         <BoxDescricao>
                             <Label>Descrição</Label>

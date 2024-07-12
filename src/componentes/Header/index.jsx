@@ -40,7 +40,7 @@ const CaixaBotao = styled.div`
     gap: 25px;
 
     @media (max-width: 768px) {
-        flex-direction: column;
+        flex-direction: row;
         gap: 15px;
     }
 
@@ -68,7 +68,7 @@ const BotaoCustomizado = styled.button`
     }
 
     @media (max-width: 768px) {
-        width: 100%;
+        width: 200px;
     }
 
     @media (max-width: 480px) {
