@@ -27,6 +27,7 @@ const ContainerSecao = styled.section`
     }
 
     @media (max-width: 480px) {
+        width: auto;
         padding: 0 0;
     }
 `
@@ -119,10 +120,12 @@ const BoxVideo = styled.div`
     }} inset;
 
     @media (max-width: 768px) {
-        height: 220px;
+        width: auto;
+        height: 280px;
     }
 
     @media (max-width: 480px) {
+        width: 420px;
         height: 280px;
     }
 `;
@@ -163,10 +166,12 @@ const BoxBotoes = styled.div`
     background-color: black;
 
     @media (max-width: 768px) {
+        width: auto;
         height: 50px;
     }
 
     @media (max-width: 480px) {
+        width: 420px;
         height: 40px;
     }
 `

@@ -16,6 +16,7 @@ const ContainerBanner = styled.section`
     }
 
     @media (max-width: 768px) {
+        width: auto;
         padding: 30px;
     }
 
