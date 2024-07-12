@@ -104,7 +104,7 @@ function Header() {
                     <BotaoCustomizado ativo={location.pathname === "/videonovo"}>
                         Novo Vídeo
                     </BotaoCustomizado>
-                </CabecalhoLink>
+                </CabecalhoLink> 
             </CaixaBotao>
         </ContainerHeader>
     )

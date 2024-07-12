@@ -42,8 +42,9 @@ const CardContainer = styled.div`
     }
 
     @media (max-width: 480px) {
-        gap: 20px;
-        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 58px;
+        overflow-x: auto;
     }
 `;
 
