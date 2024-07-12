@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import logo from './logo.png';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CabecalhoLink from '@/componentes/CabecalhoLink';
 
 const ContainerHeader = styled.header`
@@ -54,12 +54,17 @@ const BotaoCustomizado = styled.button`
     width: 180px;
     height: 54px;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 700;   
     border-radius: 10px;
     cursor: pointer;
     color: #FFF;
     border:solid 1px #fff;
     background-color: transparent;
+    ${({ ativo }) =>
+        ativo && css`
+            border-color: #2271D1;
+        `
+    }
 
     @media (max-width: 1200px) {
         width: 150px;
@@ -78,6 +83,8 @@ const BotaoCustomizado = styled.button`
 `
 
 function Header() {
+    const location = useLocation();
+
     return (
         <ContainerHeader>
             <div>
@@ -87,12 +94,12 @@ function Header() {
             </div>
             <CaixaBotao>
                 <CabecalhoLink url="./">
-                    <BotaoCustomizado>
+                    <BotaoCustomizado ativo={location.pathname === "/"}>
                         Home
                     </BotaoCustomizado>
                 </CabecalhoLink>
                 <CabecalhoLink url="./videonovo">
-                    <BotaoCustomizado>
+                    <BotaoCustomizado ativo={location.pathname === "/videonovo"}>
                         Novo Vídeo
                     </BotaoCustomizado>
                 </CabecalhoLink>

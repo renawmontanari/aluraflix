@@ -60,6 +60,14 @@ const TituloEditar = styled.h2`
         padding: 10px 0;
         line-height: 40px;
     }
+
+    @media (max-width: 768px) {
+        width: 400px;
+    }
+
+    @media (max-width: 480px) {
+        width: 380px;
+    }
 `
 
 const Input = styled.input`
@@ -76,6 +84,14 @@ const Input = styled.input`
     @media (max-width: 768px) {
         width: 100%;
         height: 50px;
+    }
+
+    @media (max-width: 768px) {
+        width: 600px;
+    }
+
+    @media (max-width: 480px) {
+        width: 380px;
     }
 `;
 
@@ -95,6 +111,11 @@ const Select = styled.select`
         width: 100%;
         height: 50px;
     }
+
+    @media (max-width: 480px) {
+        width: 396px;
+        height: 70px;
+    }
 `;
 
 const TextArea = styled.textarea`
@@ -111,6 +132,10 @@ const TextArea = styled.textarea`
     @media (max-width: 768px) {
         width: 100%;
         height: 100px;
+    }
+
+    @media (max-width: 480px) {
+        width: 380px;
     }
 `;
 
@@ -157,6 +182,10 @@ const Form = styled.form`
         height: auto;
         padding: 10px;
     }
+
+    @media (max-width: 480px) {
+        width: 410px;
+    }
 `
 
 const BoxBotoes = styled.div`
@@ -175,6 +204,7 @@ const BoxBotoes = styled.div`
     }
 
     @media (max-width: 480px) {
+        width: 390px;
         flex-direction: row;
     }
 `
@@ -268,6 +298,10 @@ const BoxDescricao = styled.div`
     @media (max-width: 768px) {
         width: 600px;
     }
+
+    @media (max-width: 480px) {
+        width: 400px;
+    }
 `
 
 const Error = styled.div`
@@ -278,7 +312,13 @@ const Error = styled.div`
 `;
 
 const BoxInputs = styled.div`
-    width: 600px;
+    @media (max-width: 768px) {
+        width: 600px;
+    }
+
+    @media (max-width: 480px) {
+        width: 400px;
+    }
 `;
 
 function VideoNovo() {
